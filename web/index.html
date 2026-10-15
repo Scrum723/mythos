@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coding</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <h1>Coding</h1>
+        <p class="tag">Senior local coding agent combining Grok Build, Astra, and GPT-style strengths. Ships work</p>
+      </div>
+    </div>
+    <div class="meta" id="meta">loading…</div>
+  </header>
+
+  <main class="grid">
+    <section class="col left">
+      <h2>Autonomy</h2>
+      <label class="level">
+        <input id="autonomy" type="range" min="1" max="5" step="1" value="3" />
+        <span id="autonomyLabel">3 — safe auto, confirm destructive</span>
+      </label>
+      <p class="hint" id="root"></p>
+      <p class="hint" id="llm"></p>
+
+      <h2>Spawn agent</h2>
+      <form id="spawnForm" class="stack">
+        <input name="name" placeholder="name (reviewer)" required pattern="[a-z0-9][a-z0-9-]{0,62}[a-z0-9]" />
+        <input name="role" placeholder="role" required />
+        <input name="tools" placeholder="tools (comma-separated)" value="list_dir,read_file,write_file,grep,run_shell,run_tests" />
+        <input name="constraints" placeholder="constraints" value="Stay in project root. No secrets. Honesty first." />
+        <textarea name="prompt" rows="4" placeholder="specialized prompt" required></textarea>
+        <button type="submit">Write standalone module</button>
+      </form>
+      <ul id="agents" class="list"></ul>
+    </section>
+
+    <section class="col center">
+      <h2>Task</h2>
+      <form id="runForm" class="stack">
+        <textarea id="task" rows="5" required placeholder="What should this agent do in the current project?"></textarea>
+        <button type="submit" id="runBtn">Run</button>
+      </form>
+      <h2>Improve another agent</h2>
+      <form id="improveForm" class="stack">
+        <input id="improvePath" name="path" placeholder="/path/to/other-agent" required />
+        <button type="submit">Scan target</button>
+      </form>
+      <div id="pending" class="pending hidden">
+        <p id="pendingText"></p>
+        <div class="row">
+          <button type="button" id="approve">Approve</button>
+          <button type="button" id="deny" class="ghost">Deny</button>
+        </div>
+      </div>
+      <ol id="log" class="log"></ol>
+    </section>
+
+    <section class="col right">
+      <h2>Plan</h2>
+      <ol id="plan" class="list"></ol>
+      <h2>Improvements</h2>
+      <ul id="improvements" class="list"></ul>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

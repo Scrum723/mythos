@@ -1,0 +1,1 @@
+"""Meteorological charts UI package."""

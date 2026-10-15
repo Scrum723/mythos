@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doc Weather · Met Charts</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Doc Weather · Met Charts</h1>
+      <p class="sub">Simple charts + upper-air maps · free NWS / NOAA / SPC · <strong>NO CHARGES</strong></p>
+    </div>
+    <div id="status" class="pill">loading…</div>
+  </header>
+
+  <section class="controls card">
+    <form id="lookup" class="row">
+      <label class="grow">
+        Location
+        <input id="q" type="text" placeholder="Buffalo, Rochester, zip, or lat,lon city" value="Buffalo" required />
+      </label>
+      <label>
+        Quick
+        <select id="preset">
+          <option value="">—</option>
+        </select>
+      </label>
+      <button type="submit" id="go">Load</button>
+    </form>
+    <p id="place" class="place"></p>
+    <p id="error" class="error hidden"></p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>Temperature (hourly)</h2>
+      <canvas id="tempChart" width="720" height="260"></canvas>
+    </article>
+    <article class="card">
+      <h2>Precip chance (hourly)</h2>
+      <canvas id="popChart" width="720" height="260"></canvas>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2>Forecast periods</h2>
+    <div id="periods" class="periods"></div>
+  </section>
+
+  <section class="card">
+    <h2>Alerts</h2>
+    <div id="alerts" class="alerts">None</div>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <h2>Upper air &amp; radar</h2>
+      <select id="mapPick"></select>
+    </div>
+    <p id="mapLabel" class="sub"></p>
+    <img id="mapImg" class="map" alt="Upper air or radar map" />
+  </section>
+
+  <footer class="foot">
+    Sources: <code>api.weather.gov</code>, SPC obs maps, WPC surface, NWS radar. Local Mythos UI in <code>meteorological_ui/</code>.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
