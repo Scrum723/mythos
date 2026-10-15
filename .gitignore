@@ -1,10 +1,12 @@
 .venv/
 __pycache__/
+*.pyc
 .env
-data/*.jsonl
+.DS_Store
+node_modules/
 models/
 data/index/
 
-node_modules/
-.DS_Store
-*.pyc
+# Local runtime logs may appear; keep the durable improve log tracked
+data/*.jsonl
+!data/improvements.jsonl
