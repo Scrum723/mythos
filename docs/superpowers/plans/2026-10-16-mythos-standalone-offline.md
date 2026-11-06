@@ -38,17 +38,17 @@
 - Consumes: current dirty tree on `main`
 - Produces: branch `feature/mythos-standalone-offline` with baseline committed
 
-- [ ] **Step 1: Create branch `feature/mythos-standalone-offline` from current tree**
+- [x] **Step 1: Create branch `feature/mythos-standalone-offline` from current tree**
 
 Run: `git checkout -b feature/mythos-standalone-offline`
 Expected: on new branch
 
-- [ ] **Step 2: Run baseline suite**
+- [x] **Step 2: Run baseline suite**
 
 Run: `python -m unittest discover -s tests -v`
 Expected: all tests PASS
 
-- [ ] **Step 3: Commit baseline**
+- [x] **Step 3: Commit baseline**
 
 ```bash
 git add -A
