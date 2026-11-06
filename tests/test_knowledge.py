@@ -14,6 +14,7 @@ from engine.defense import local_threat_posture, scan_exterior_risks
 from engine.knowledge import (
     coding_languages,
     knowledge_snapshot,
+    mcp_catalog,
     spoken_language_count,
     spoken_languages,
     synthesize_capabilities,
@@ -119,6 +120,18 @@ class DefenseAndSynthesisTests(unittest.TestCase):
         data = json.loads(buf.getvalue())
         self.assertGreaterEqual(data["spoken"]["count"], 150)
         self.assertIn("python", data["coding"]["ids"])
+        self.assertIn("mcp", data)
+        self.assertGreaterEqual(data["mcp"]["scraped_count"], 300)
+
+    def test_mcp_catalog_from_github_mcp_pages(self):
+        cat = mcp_catalog()
+        self.assertEqual(cat["source"], "https://github.com/mcp")
+        self.assertGreaterEqual(cat["scraped_count"], 300)
+        self.assertGreaterEqual(cat["relevant_count"], 30)
+        self.assertTrue(any(s.get("page") == 1 for s in cat["servers"]))
+        self.assertTrue(any(s.get("page") == 10 for s in cat["servers"]))
+        policy = cat["install_policy"].lower()
+        self.assertTrue("catalog" in policy and "install" in policy)
 
 
 if __name__ == "__main__":

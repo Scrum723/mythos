@@ -94,10 +94,27 @@ def synthesize_capabilities() -> dict[str, Any]:
     }
 
 
+def mcp_catalog() -> dict[str, Any]:
+    data = _read_json("mcp_catalog.json")
+    servers = data.get("servers") or []
+    relevant = data.get("relevant_servers") or [s for s in servers if s.get("mythos_relevant")]
+    return {
+        "source": data.get("source") or "https://github.com/mcp",
+        "scraped_pages": data.get("scraped_pages") or [],
+        "scraped_count": data.get("scraped_count") or len(servers),
+        "relevant_count": data.get("relevant_count") or len(relevant),
+        "install_policy": data.get("install_policy")
+        or "Catalog only — Mythos does not mass-install remote MCP servers.",
+        "servers": servers,
+        "relevant_servers": relevant,
+    }
+
+
 def knowledge_snapshot() -> dict[str, Any]:
     coding = coding_languages()
     spoken = spoken_languages()
     caps = synthesize_capabilities()
+    mcp = mcp_catalog()
     from .defense import local_threat_posture
 
     return {
@@ -111,6 +128,13 @@ def knowledge_snapshot() -> dict[str, Any]:
         "spoken": {
             "count": len(spoken),
             "languages": list(spoken),
+        },
+        "mcp": {
+            "source": mcp["source"],
+            "scraped_count": mcp["scraped_count"],
+            "relevant_count": mcp["relevant_count"],
+            "install_policy": mcp["install_policy"],
+            "relevant_servers": mcp["relevant_servers"],
         },
         "capabilities": caps,
         "defense": local_threat_posture(),

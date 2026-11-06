@@ -39,6 +39,11 @@ CORE_LESSONS = [
         "title": "Local exterior-threat protection",
         "body": "Loopback-only LLM, secret redaction, path sandbox, airgap. Mythos protects locally — it is not a cloud SOC.",
     },
+    {
+        "id": "mcp_catalog",
+        "title": "GitHub MCP catalog (local library)",
+        "body": "Pages 1–10 of https://github.com/mcp are catalogued under data/knowledge/mcp_catalog.json; later pages scoured for Mythos-relevant tools. Catalog ≠ mass-install — keep standalone local.",
+    },
 ]
 
 
