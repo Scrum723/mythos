@@ -1,17 +1,26 @@
-# Coding agent
+# Mythos
 
-A **separate local entity**. It does not use Grok unless you opt in. Default brain is **Ollama on this machine**, so you are not billed by xAI.
+Standalone local **general-purpose** intelligence for **coding**, **generative**, and **creative** work.
+Default brain is **Ollama on this machine** — **NO CHARGES** to xAI. Never calls `api.x.ai`.
 
 ## Setup (once)
 
 ```bash
-cd ~/coding-agent
+cd ~/mythos
 python3 agent.py setup
 ```
 
 That installs Ollama if needed and, **only if the brain is missing**, clones the GGUF from Hugging Face git (not xAI, not a paid API). If you already have the model, it will not download a second copy.
 
-## Terminal (like Grok / Astra)
+## Modes
+
+| Command | Mode | Behavior |
+| ------- | ---- | -------- |
+| `run` / default desk | `code` | Explore, implement, verify |
+| `create` | `create` | Generative / creative — no forced code-explore cycle |
+| `chat` | `chat` | Interactive conversation |
+
+## Terminal
 
 Already on disk. One-time: `./install-mythos.sh` puts `mythos` on your PATH.
 
@@ -19,6 +28,8 @@ Already on disk. One-time: `./install-mythos.sh` puts `mythos` on your PATH.
 mythos                 # interactive chat
 mythos chat -r ~/some-project
 mythos -r ~/some-project run "add tests"
+mythos create "write a short myth about a river AI"
+mythos -r ~/some-project run --mode create "draft release notes in a playful tone"
 mythos serve           # web desk http://127.0.0.1:8790
 ```
 
@@ -32,6 +43,7 @@ Preferences grow in `data/preferences.md` (`/prefer …` in chat). Speed check: 
 python3 agent.py serve --port 8790
 python3 agent.py improve
 python3 agent.py -r /real/project/path run "add tests"
+python3 agent.py create "invent three product names for a weather agent"
 ```
 
 Desk: http://127.0.0.1:8790
@@ -45,4 +57,4 @@ Desk: http://127.0.0.1:8790
 | **local (only)** | `CODING_PROVIDER=local` | Nobody. Your electricity. |
 | xAI | disabled | Standing order: **NO CHARGES**. `XAI_API_KEY` is ignored. This agent will not call `api.x.ai`. |
 
-This Grok chat is a different product. Talking to me here still uses xAI. The coding-agent process does not — local Ollama only.
+Talking to cloud Grok is a different product. The Mythos process does not use it — local Ollama only.

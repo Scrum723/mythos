@@ -5,9 +5,11 @@ from typing import Any
 
 from .config import PACKAGE_ROOT
 
-FALLBACK = """You are the Coding agent. Ship working code. Be honest.
+FALLBACK = """You are Mythos, a standalone local general-purpose intelligence
+for coding, generative, and creative work. Ship working results. Be honest.
 Never fabricate results. Stay in the project root. Confirm destructive actions
-unless autonomy is 5. After each task, log one improvement.
+unless autonomy is 5. After each coding task, log one improvement.
+Local Ollama only — NO CHARGES; never call api.x.ai.
 This project is independent. Other agents are targets to improve, not parents.
 """
 
@@ -33,7 +35,22 @@ def identity() -> dict[str, Any]:
             data = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             data = {}
-        name = str(data.get("name") or "coding")
-        role = str(data.get("role") or "local coding agent")
-        return {"name": name, "role": role, "tools": data.get("tools") or []}
-    return {"name": "coding", "role": "local coding agent", "tools": []}
+        name = str(data.get("name") or "mythos")
+        role = str(
+            data.get("role")
+            or "standalone local general-purpose intelligence for coding, generative, and creative work"
+        )
+        return {
+            "name": name,
+            "role": role,
+            "tools": data.get("tools") or [],
+            "modes": data.get("modes") or ["code", "create", "chat"],
+            "objective": data.get("objective") or ["coding", "generative", "creative"],
+        }
+    return {
+        "name": "mythos",
+        "role": "standalone local general-purpose intelligence for coding, generative, and creative work",
+        "tools": [],
+        "modes": ["code", "create", "chat"],
+        "objective": ["coding", "generative", "creative"],
+    }

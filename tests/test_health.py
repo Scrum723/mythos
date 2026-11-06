@@ -22,13 +22,19 @@ class HealthTests(unittest.TestCase):
             os.environ.update(env)
         self.assertEqual(code, 0)
         data = json.loads(buf.getvalue())
-        self.assertEqual(data["service"], "coding")
+        self.assertEqual(data["service"], "mythos")
         self.assertTrue(data["service"])
         self.assertEqual(data["autonomy"], 3)
         self.assertEqual(data["provider"], "local")
         self.assertFalse(data["bills_xai"])
-        self.assertNotIn("griffty", data["role"].lower())
-        self.assertNotIn("wfad", data["role"].lower())
+        role = data["role"].lower()
+        self.assertIn("coding", role)
+        self.assertTrue("generative" in role or "creative" in role)
+        self.assertNotIn("griffty", role)
+        self.assertNotIn("wfad", role)
+        modes = data.get("modes") or []
+        self.assertIn("code", modes)
+        self.assertIn("create", modes)
 
 
 if __name__ == "__main__":

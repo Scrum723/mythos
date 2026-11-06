@@ -10,3 +10,6 @@ data/index/
 # Local runtime logs may appear; keep the durable improve log tracked
 data/*.jsonl
 !data/improvements.jsonl
+
+.worktrees/
+.superpowers/

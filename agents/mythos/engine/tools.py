@@ -36,8 +36,32 @@ CHAT_TOOLS = {
     "remember_preference",
 }
 
+# Generative/creative: produce artifacts without code-explore tooling.
+CREATE_TOOLS = {
+    "list_dir",
+    "read_file",
+    "batch_read",
+    "write_file",
+    "grep",
+    "git_status",
+    "remember_preference",
+    "log_improvement",
+}
+
+
+def tool_names_for(mode: str = "code") -> list[str]:
+    """Ordered tool names exposed for a mode (checkable routing surface)."""
+    from .prompt_build import normalize_mode
+
+    m = normalize_mode(mode)
+    names = [t["function"]["name"] for t in tool_schemas(mode=m)]
+    return names
+
 
 def tool_schemas(*, mode: str = "code") -> list[dict[str, Any]]:
+    from .prompt_build import normalize_mode
+
+    m = normalize_mode(mode)
     all_tools = [
         _fn(
             "list_dir",
@@ -142,8 +166,10 @@ def tool_schemas(*, mode: str = "code") -> list[dict[str, Any]]:
         _fn("list_agents", "List spawned sub-agents.", {}, []),
         _fn("read_improvements", "Read recent improvement log entries.", {}, []),
     ]
-    if mode == "chat":
+    if m == "chat":
         return [t for t in all_tools if t["function"]["name"] in CHAT_TOOLS]
+    if m == "create":
+        return [t for t in all_tools if t["function"]["name"] in CREATE_TOOLS]
     return all_tools
 
 

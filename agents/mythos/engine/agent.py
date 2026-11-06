@@ -10,7 +10,7 @@ from .config import Settings
 from .index import ensure_index
 from .llm import LLMClient, LLMError
 from .planner import heuristic_plan
-from .prompt_build import build_system, language_for
+from .prompt_build import build_system, language_for, mode_skips_code_explore, normalize_mode, resolve_mode
 from .security import redact
 from .tools import ConfirmationRequired, ToolBox, tool_schemas
 
@@ -43,7 +43,7 @@ class RunResult:
 
 
 def system_prompt(settings: Settings, extra: str | None = None, *, mode: str = "code") -> str:
-    return build_system(settings, mode=mode, extra=extra)
+    return build_system(settings, mode=normalize_mode(mode), extra=extra)
 
 
 def run_task(
@@ -53,10 +53,11 @@ def run_task(
     extra_system: str | None = None,
     confirmer: Confirmer | None = None,
     listener: Listener | None = None,
-    mode: str = "code",
+    mode: str | None = None,
 ) -> RunResult:
     settings = settings or Settings.load()
     events: list[dict[str, Any]] = []
+    mode = resolve_mode(task, mode)
 
     def emit(event: dict[str, Any]) -> None:
         events.append(event)
@@ -65,7 +66,8 @@ def run_task(
 
     lang = language_for(settings.root)
     emit({"type": "language", "data": lang})
-    if mode == "code":
+    emit({"type": "mode", "data": {"mode": mode}})
+    if not mode_skips_code_explore(mode):
         try:
             idx = ensure_index(settings.root, allow_secrets=settings.allow_secrets)
             emit({"type": "index", "data": idx})
@@ -73,7 +75,10 @@ def run_task(
             emit({"type": "index", "data": {"error": str(exc)}})
 
     box = ToolBox(settings, confirmer=confirmer)
-    plan = heuristic_plan(task, settings.root, lang) if mode == "code" else {"task": task, "subgoals": [], "source": "chat"}
+    if mode_skips_code_explore(mode):
+        plan = {"task": task, "subgoals": [], "source": mode}
+    else:
+        plan = heuristic_plan(task, settings.root, lang)
     emit({"type": "plan", "data": plan})
 
     client = LLMClient(settings)
@@ -93,7 +98,7 @@ def run_task(
     ]
     tools = tool_schemas(mode=mode)
     final_text = ""
-    max_steps = min(settings.max_steps, 8 if mode == "chat" else settings.max_steps)
+    max_steps = min(settings.max_steps, 8 if mode_skips_code_explore(mode) else settings.max_steps)
     try:
         for step in range(max_steps):
             emit({"type": "step", "data": {"n": step + 1}})

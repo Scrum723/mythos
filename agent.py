@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Standalone agent: coding
+"""Standalone agent: Mythos
 
-Role: Senior local coding agent combining Grok Build, Astra, and GPT-style strengths. Ships working code, not suggestions.
+Role: Standalone local general-purpose intelligence for coding, generative, and creative work.
+Local Ollama only — NO CHARGES / never xAI.
 
 Copy this folder anywhere. It includes its own runtime, CLI, and web desk.
 """
@@ -18,6 +19,7 @@ from engine.cli import main as _cli_main
 
 COMMANDS = {
     "run",
+    "create",
     "chat",
     "serve",
     "spawn",

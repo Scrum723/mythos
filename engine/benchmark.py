@@ -13,9 +13,11 @@ from .tools import ToolBox, tool_schemas
 def report(settings: Settings) -> dict[str, Any]:
     prompt = prompt_stats(settings, mode="chat")
     prompt_code = prompt_stats(settings, mode="code")
+    prompt_create = prompt_stats(settings, mode="create")
     old_tools = 13  # prior schema count before retrieve/batch/prefer
     new_chat = len(tool_schemas(mode="chat"))
     new_code = len(tool_schemas(mode="code"))
+    new_create = len(tool_schemas(mode="create"))
 
     t0 = time.perf_counter()
     build_index(settings.root, allow_secrets=settings.allow_secrets)
@@ -50,11 +52,13 @@ def report(settings: Settings) -> dict[str, Any]:
         "prompt": {
             "chat": prompt,
             "code": prompt_code,
+            "create": prompt_create,
         },
         "tools": {
             "old_count": old_tools,
             "chat_count": new_chat,
             "code_count": new_code,
+            "create_count": new_create,
         },
         "index": {
             "build_ms": index_ms,

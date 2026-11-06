@@ -34,8 +34,10 @@ class Desk:
         with self.lock:
             ident = identity()
             return {
-                "service": ident.get("name") or "coding",
+                "service": ident.get("name") or "mythos",
                 "role": ident.get("role") or "",
+                "modes": ident.get("modes") or ["code", "create", "chat"],
+                "objective": ident.get("objective") or ["coding", "generative", "creative"],
                 "root": str(self.settings.root),
                 "autonomy": self.settings.autonomy,
                 "provider": self.settings.provider,
@@ -79,7 +81,7 @@ class Desk:
             self._confirm.set()
         return True
 
-    def start_run(self, task: str, autonomy: int | None) -> str:
+    def start_run(self, task: str, autonomy: int | None, mode: str | None = None) -> str:
         with self.lock:
             if self.busy:
                 return "busy"
@@ -87,18 +89,19 @@ class Desk:
             self.last_report = ""
             if autonomy is not None:
                 self.settings.autonomy = autonomy
-        thread = threading.Thread(target=self._run, args=(task,), daemon=True)
+        thread = threading.Thread(target=self._run, args=(task, mode), daemon=True)
         thread.start()
         return "started"
 
-    def _run(self, task: str) -> None:
-        self.emit({"type": "start", "data": {"task": task, "autonomy": self.settings.autonomy}})
+    def _run(self, task: str, mode: str | None = None) -> None:
+        self.emit({"type": "start", "data": {"task": task, "autonomy": self.settings.autonomy, "mode": mode}})
         try:
             result = run_task(
                 task,
                 settings=self.settings,
                 confirmer=self.confirmer,
                 listener=lambda e: self.emit(e),
+                mode=mode,
             )
             self.last_report = result.report
             self.emit({"type": "done", "data": {"ok": result.ok, "report": result.report}})
@@ -116,7 +119,7 @@ def make_server(settings: Settings, host: str = "127.0.0.1", port: int = 8790) -
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, fmt: str, *args: Any) -> None:
             sys_stderr = __import__("sys").stderr
-            sys_stderr.write("[coding] " + (fmt % args) + "\n")
+            sys_stderr.write("[mythos] " + (fmt % args) + "\n")
 
         def _json(self, code: int, payload: Any) -> None:
             raw = json.dumps(payload, default=str).encode("utf-8")
@@ -181,7 +184,10 @@ def make_server(settings: Settings, host: str = "127.0.0.1", port: int = 8790) -
                         return self._json(400, {"error": "autonomy must be 1-5"})
                     if autonomy < 1 or autonomy > 5:
                         return self._json(400, {"error": "autonomy must be 1-5"})
-                status = desk.start_run(task, autonomy)
+                mode = body.get("mode")
+                if mode is not None:
+                    mode = str(mode).strip() or None
+                status = desk.start_run(task, autonomy, mode=mode)
                 code = 409 if status == "busy" else 202
                 return self._json(code, {"status": status})
             if path == "/api/confirm":
@@ -274,7 +280,7 @@ def make_server(settings: Settings, host: str = "127.0.0.1", port: int = 8790) -
 def serve(settings: Settings, host: str = "127.0.0.1", port: int = 8790) -> None:
     httpd = make_server(settings, host, port)
     ident = identity()
-    label = ident.get("name") or "coding"
+    label = ident.get("name") or "mythos"
     print(f"{label} desk  http://{host}:{port}  autonomy={settings.autonomy}  root={settings.root}")
     if host in {"0.0.0.0", "::", "[::]"}:
         print("WARNING: listening on all interfaces with no auth. Do not publish this port.")

@@ -16,16 +16,25 @@ from .spawn import list_agents, spawn
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        prog="coding",
-        description="Coding agent — separate local coding agent that can also improve other agents.",
+        prog="mythos",
+        description="Mythos — standalone local general-purpose intelligence (coding, generative, creative). NO CHARGES.",
     )
     parser.add_argument("-a", "--autonomy", type=int, choices=range(1, 6), help="1-5, default 3")
     parser.add_argument("-r", "--root", help="Project root the agent may touch")
     parser.add_argument("--allow-secrets", action="store_true", help="Allow reading secret-like files")
     sub = parser.add_subparsers(dest="cmd", required=False)
 
-    run_p = sub.add_parser("run", help="Run one task")
+    run_p = sub.add_parser("run", help="Run one coding (or --mode) task")
     run_p.add_argument("task", help="What to do")
+    run_p.add_argument(
+        "--mode",
+        choices=["code", "create", "chat", "generative", "creative"],
+        default="code",
+        help="code | create (generative/creative) | chat",
+    )
+
+    create_p = sub.add_parser("create", help="Generative / creative task (no forced code-explore)")
+    create_p.add_argument("task", help="What to create")
 
     sub.add_parser("chat", help="Interactive REPL")
 
@@ -100,7 +109,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(json.dumps(report(settings), indent=2))
         return 0
     if args.cmd == "run":
-        return _run(args.task, settings)
+        return _run(args.task, settings, mode=getattr(args, "mode", "code"))
+    if args.cmd == "create":
+        return _run(args.task, settings, mode="create")
     if args.cmd == "chat":
         return _chat(settings)
     if args.cmd == "serve":
@@ -133,11 +144,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.cmd == "improve":
         return _improve(args.target, settings, apply=args.apply)
     if args.cmd == "health":
+        ident = identity()
         print(
             json.dumps(
                 {
-                    "service": identity().get("name") or "coding",
-                    "role": identity().get("role") or "",
+                    "service": ident.get("name") or "mythos",
+                    "role": ident.get("role") or "",
+                    "modes": ident.get("modes") or ["code", "create", "chat"],
+                    "objective": ident.get("objective") or ["coding", "generative", "creative"],
                     "root": str(settings.root),
                     "autonomy": settings.autonomy,
                     "provider": settings.provider,
@@ -178,7 +192,9 @@ def _guide(settings: Settings) -> int:
     print(
         "\n".join(
             [
-                "Coding agent is a separate entity. Default brain is a local model, not Grok.",
+                "Mythos is a standalone local general-purpose intelligence.",
+                "Modes: code (implement), create (generative/creative), chat (talk).",
+                "Default brain is a local model, not Grok.",
                 f"Provider: {settings.provider}  brain: {brain}",
                 f"Local model ready: {'yes' if settings.has_llm else 'NO — run python3 agent.py setup'}",
                 "",
@@ -186,6 +202,8 @@ def _guide(settings: Settings) -> int:
                 "  python3 agent.py serve --port 8790",
                 "  python3 agent.py improve",
                 '  python3 agent.py -r ~/some-real-dir run "add tests"',
+                '  python3 agent.py create "write a short myth about rivers"',
+                '  python3 agent.py run --mode create "invent three product names"',
                 "",
                 f"This folder: {here}",
                 "NO CHARGES: xAI billing is disabled. Local Ollama only.",
@@ -217,8 +235,8 @@ def _improve(target: str | None, settings: Settings, *, apply: bool) -> int:
     return _run(coach.improve_task(path, apply=True), settings)
 
 
-def _run(task: str, settings: Settings) -> int:
-    result = run_task(task, settings=settings, confirmer=_confirmer)
+def _run(task: str, settings: Settings, *, mode: str = "code") -> int:
+    result = run_task(task, settings=settings, confirmer=_confirmer, mode=mode)
     print(result.report)
     return 0 if result.ok else 1
 
@@ -226,9 +244,10 @@ def _run(task: str, settings: Settings) -> int:
 def _chat(settings: Settings) -> int:
     print(f"mythos  local  no-charges  autonomy={settings.autonomy}")
     print(f"workspace: {settings.root}")
-    print("Talk like you would to Grok. /help  /quit  /root PATH  /prefer NOTE  /bench")
+    print("Standalone local intelligence (coding + generative + creative). /help  /quit")
     if not settings.has_llm:
         print("Local model is not running. python3 agent.py setup")
+    chat_mode = "chat"
     while True:
         try:
             line = input("mythos> ").strip()
@@ -241,12 +260,32 @@ def _chat(settings: Settings) -> int:
             return 0
         if line in {"/help", "/?"}:
             print("  type a task and press enter")
-            print("  /root PATH     work in that project")
-            print("  /prefer NOTE   save a lasting preference")
-            print("  /autonomy 1-5  3 is default")
-            print("  /improve PATH  scan another agent folder")
-            print("  /bench         speed report vs old prompts")
+            print("  /mode code|create|chat   switch REPL mode (default chat)")
+            print("  /create PROMPT           one-shot generative/creative turn")
+            print("  /root PATH               work in that project")
+            print("  /prefer NOTE             save a lasting preference")
+            print("  /autonomy 1-5            3 is default")
+            print("  /improve PATH            scan another agent folder")
+            print("  /bench                   speed report vs old prompts")
             print("  /quit")
+            continue
+        if line.startswith("/mode"):
+            parts = line.split(maxsplit=1)
+            if len(parts) != 2:
+                print("usage: /mode code|create|chat")
+                continue
+            from .prompt_build import normalize_mode
+
+            chat_mode = normalize_mode(parts[1])
+            print(f"mode={chat_mode}")
+            continue
+        if line.startswith("/create"):
+            parts = line.split(maxsplit=1)
+            if len(parts) != 2:
+                print("usage: /create write a short myth about …")
+                continue
+            result = run_task(parts[1], settings=settings, confirmer=_confirmer, mode="create")
+            print(result.report)
             continue
         if line.startswith("/prefer"):
             from . import prefs
@@ -291,6 +330,6 @@ def _chat(settings: Settings) -> int:
                 continue
             _improve(parts[1], settings, apply=False)
             continue
-        result = run_task(line, settings=settings, confirmer=_confirmer, mode="chat")
+        result = run_task(line, settings=settings, confirmer=_confirmer, mode=chat_mode)
         print(result.report)
     return 0
