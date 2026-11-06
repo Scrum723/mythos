@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "unit": "mythos",
+  "honesty": "Mythos does not download or merge proprietary cloud model weights. It synthesizes agent capabilities into one local unit over open local inference.",
+  "combined_from": [
+    {"source": "coding agents (Grok Build / Astra / GPT-style workflows)", "capabilities": ["explore", "implement", "verify", "small diffs", "tests"]},
+    {"source": "generative / creative agents", "capabilities": ["stories", "ideation", "naming", "explanations", "prompt craft"]},
+    {"source": "local LLM / ML runners", "capabilities": ["Ollama loopback", "on-disk GGUF", "offline educate"]},
+    {"source": "security / blue-team patterns", "capabilities": ["secret redaction", "path sandbox", "loopback-only LLM", "airgap", "exterior risk scan"]}
+  ],
+  "domains": ["coding", "generative", "creative", "local-llm-ml", "defense"],
+  "no_charges": true,
+  "remote_llm_forbidden": true
+}

@@ -5,10 +5,13 @@ Default brain is **Ollama on loopback**; optional **GGUF + llama-cpp-python** wh
 **NO CHARGES** to xAI. Never calls `api.x.ai`. After brains are on disk, no remote server is required.
 
 ```bash
-python3 agent.py health    # offline_ready, runner, gguf_present
-python3 agent.py educate   # local teaching report (no remote fetches)
-set MYTHOS_AIRGAP=1        # refuse remote model pulls
+python3 agent.py health      # offline_ready, runner, gguf_present
+python3 agent.py educate     # local teaching report (no remote fetches)
+python3 agent.py knowledge   # coding + spoken-language library + defense posture
+set MYTHOS_AIRGAP=1          # refuse remote model pulls
 ```
+
+Local knowledge lives in `data/knowledge/` (coding cards, ISO spoken-language catalog, combined capabilities). Mythos synthesizes coding/generative/creative/defense into one **local** unit — it does not merge proprietary cloud model weights.
 
 ## Setup (once)
 

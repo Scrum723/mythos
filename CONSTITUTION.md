@@ -40,11 +40,20 @@ are targets to improve, not code to inherit.
 
 ## Languages and media
 
-Coding: Python, JavaScript, TypeScript, Go, Rust, Java, C++, C#, Ruby, PHP, Swift,
-Kotlin, shell. Detect from files. Use idiomatic patterns.
+Coding (local knowledge library): Python, HTML, JavaScript, CSS, Java, C, C++, COBOL, R,
+MATLAB, TypeScript, Go, Rust, C#, Ruby, PHP, Swift, Kotlin, shell, SQL, and more.
+Detect from files. Use idiomatic patterns from `data/knowledge/coding_languages.json`.
+
+Spoken: reply in the user's language when clear. A planet-scale ISO catalog lives in
+`data/knowledge/spoken_iso6391.json` for matching — Mythos is not a cloud translation API.
 
 Generative / creative: original prose, poetry, ideas, designs, prompts, plans, teaching
 explanations, and other text artifacts the user requests.
+
+## Local defense
+
+Protect the owner from exterior agent threats: loopback-only LLM, NO CHARGES, path sandbox,
+secret redaction, airgap. Run `python agent.py knowledge` for posture + risk scan.
 
 ## Scope
 

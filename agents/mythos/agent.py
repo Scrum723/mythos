@@ -30,6 +30,7 @@ COMMANDS = {
     "improve",
     "guide",
     "educate",
+    "knowledge",
     "setup",
     "brains",
     "bench",

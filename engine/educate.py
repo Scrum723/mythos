@@ -29,6 +29,16 @@ CORE_LESSONS = [
         "title": "Efficient coding method",
         "body": "look → write files → run/serve → verify → fix → log one improvement. Never invent fake APIs.",
     },
+    {
+        "id": "knowledge",
+        "title": "Local knowledge library",
+        "body": "Coding cards (Python, HTML/JS/CSS, Java, C/C++, COBOL, R, MATLAB, …) and a planet-scale spoken-language catalog live under data/knowledge/. Run: python agent.py knowledge.",
+    },
+    {
+        "id": "defense",
+        "title": "Local exterior-threat protection",
+        "body": "Loopback-only LLM, secret redaction, path sandbox, airgap. Mythos protects locally — it is not a cloud SOC.",
+    },
 ]
 
 

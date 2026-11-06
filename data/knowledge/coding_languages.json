@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "note": "Local Mythos coding knowledge cards — idioms and threat notes, not model weights.",
+  "languages": [
+    {"id": "python", "name": "Python", "extensions": [".py", ".pyi"], "idiom": "PEP 8, type hints, pathlib, pytest/unittest", "threat_notes": "Avoid pickle from untrusted data; use parameterized SQL; never hardcode secrets."},
+    {"id": "html", "name": "HTML", "extensions": [".html", ".htm"], "idiom": "Semantic HTML5, accessible markup", "threat_notes": "Escape user content; no inline secrets; CSP-friendly structure."},
+    {"id": "javascript", "name": "JavaScript", "extensions": [".js", ".mjs", ".cjs", ".jsx"], "idiom": "Match module system; no new frameworks unless asked", "threat_notes": "Sanitize DOM inserts; avoid eval; pin dependencies."},
+    {"id": "css", "name": "CSS", "extensions": [".css", ".scss", ".sass", ".less"], "idiom": "Mobile-first; reuse design tokens", "threat_notes": "Avoid expression() / untrusted CSS injection."},
+    {"id": "java", "name": "Java", "extensions": [".java"], "idiom": "Idiomatic packages; JUnit if present", "threat_notes": "No deserialization of untrusted streams; parameterized queries."},
+    {"id": "c", "name": "C", "extensions": [".c", ".h"], "idiom": "C11/C17; clear ownership; no buffer overflows", "threat_notes": "Bounds-check buffers; prefer safer string APIs; ASAN in tests when available."},
+    {"id": "cpp", "name": "C++", "extensions": [".cpp", ".cc", ".cxx", ".hpp", ".hh"], "idiom": "C++17+ RAII; avoid raw new/delete", "threat_notes": "Prefer smart pointers; validate all external input lengths."},
+    {"id": "cobol", "name": "COBOL", "extensions": [".cbl", ".cob", ".cobol", ".cpy"], "idiom": "Clear divisions; shop standards", "threat_notes": "Validate numeric fields; avoid ALTER; careful with file status."},
+    {"id": "r", "name": "R", "extensions": [".r", ".rmd"], "idiom": "Consistent tidyverse or base; reproducible scripts", "threat_notes": "Do not eval untrusted strings; pin package versions for analyses."},
+    {"id": "matlab", "name": "MATLAB", "extensions": [".m", ".mlx"], "idiom": "Vectorize clearly; match toolboxes already used", "threat_notes": "Avoid eval; validate loaded MAT files from untrusted sources."},
+    {"id": "typescript", "name": "TypeScript", "extensions": [".ts", ".tsx"], "idiom": "Strict types; avoid any", "threat_notes": "Same as JS plus trust boundaries at type edges."},
+    {"id": "go", "name": "Go", "extensions": [".go"], "idiom": "gofmt; context on IO", "threat_notes": "Context cancel; no SQL string concat."},
+    {"id": "rust", "name": "Rust", "extensions": [".rs"], "idiom": "Result/Option; cargo test", "threat_notes": "Prefer safe Rust; audit unsafe blocks."},
+    {"id": "csharp", "name": "C#", "extensions": [".cs"], "idiom": "Nullable refs if enabled", "threat_notes": "Parameterized SQL; validate uploads."},
+    {"id": "ruby", "name": "Ruby", "extensions": [".rb"], "idiom": "snake_case; Minitest/RSpec", "threat_notes": "Avoid YAML.load; use safe loaders."},
+    {"id": "php", "name": "PHP", "extensions": [".php"], "idiom": "Composer autoload; PHPUnit", "threat_notes": "Prepared statements; escape output."},
+    {"id": "swift", "name": "Swift", "extensions": [".swift"], "idiom": "API design guidelines", "threat_notes": "Validate all external data."},
+    {"id": "kotlin", "name": "Kotlin", "extensions": [".kt", ".kts"], "idiom": "Null safety", "threat_notes": "Same JVM injection rules as Java."},
+    {"id": "shell", "name": "Shell", "extensions": [".sh", ".bash", ".zsh"], "idiom": "set -euo pipefail; quote vars", "threat_notes": "No eval; never pass unsanitized input to the shell."},
+    {"id": "sql", "name": "SQL", "extensions": [".sql"], "idiom": "Match existing dialect", "threat_notes": "Always parameterize; least-privilege DB roles."},
+    {"id": "lua", "name": "Lua", "extensions": [".lua"], "idiom": "Locals; match host embed", "threat_notes": "Sandbox untrusted scripts."},
+    {"id": "perl", "name": "Perl", "extensions": [".pl", ".pm"], "idiom": "strict + warnings", "threat_notes": "Taint mode for untrusted input when applicable."},
+    {"id": "scala", "name": "Scala", "extensions": [".scala"], "idiom": "Prefer immutability", "threat_notes": "Same JVM rules as Java."},
+    {"id": "dart", "name": "Dart", "extensions": [".dart"], "idiom": "Null safety; Flutter or pure Dart", "threat_notes": "Validate platform channel input."},
+    {"id": "elixir", "name": "Elixir", "extensions": [".ex", ".exs"], "idiom": "OTP if present", "threat_notes": "Do not trust external BEAM terms blindly."},
+    {"id": "julia", "name": "Julia", "extensions": [".jl"], "idiom": "Multiple dispatch; Project.toml", "threat_notes": "Avoid eval on untrusted code."}
+  ]
+}

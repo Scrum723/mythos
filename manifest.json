@@ -1,6 +1,6 @@
 {
   "name": "mythos",
-  "role": "Owner-controlled standalone local intelligence for coding, generative, creative, and local LLM/ML inference. Brains on disk (Ollama loopback or GGUF). NO CHARGES / never xAI. No remote server required after install.",
+  "role": "Owner-controlled standalone local intelligence combining coding, generative, creative, local LLM/ML, and local defense. Expanded coding library (Python, HTML/JS/CSS, Java, C/C++, COBOL, R, MATLAB, …) plus planet-scale spoken-language catalog. Brains on disk. NO CHARGES / never xAI.",
   "tools": [
     "list_dir",
     "read_file",

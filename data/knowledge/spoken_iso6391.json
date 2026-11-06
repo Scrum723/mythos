@@ -1,0 +1,1431 @@
+{
+  "version": 1,
+  "source": "ISO 639-1 + major macros (local Mythos catalog)",
+  "languages": [
+    {
+      "code": "aa",
+      "name": "Afar",
+      "scope": "spoken"
+    },
+    {
+      "code": "ab",
+      "name": "Abkhazian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ae",
+      "name": "Avestan",
+      "scope": "spoken"
+    },
+    {
+      "code": "af",
+      "name": "Afrikaans",
+      "scope": "spoken"
+    },
+    {
+      "code": "ak",
+      "name": "Akan",
+      "scope": "spoken"
+    },
+    {
+      "code": "am",
+      "name": "Amharic",
+      "scope": "spoken"
+    },
+    {
+      "code": "an",
+      "name": "Aragonese",
+      "scope": "spoken"
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "as",
+      "name": "Assamese",
+      "scope": "spoken"
+    },
+    {
+      "code": "av",
+      "name": "Avaric",
+      "scope": "spoken"
+    },
+    {
+      "code": "ay",
+      "name": "Aymara",
+      "scope": "spoken"
+    },
+    {
+      "code": "az",
+      "name": "Azerbaijani",
+      "scope": "spoken"
+    },
+    {
+      "code": "ba",
+      "name": "Bashkir",
+      "scope": "spoken"
+    },
+    {
+      "code": "be",
+      "name": "Belarusian",
+      "scope": "spoken"
+    },
+    {
+      "code": "bg",
+      "name": "Bulgarian",
+      "scope": "spoken"
+    },
+    {
+      "code": "bi",
+      "name": "Bislama",
+      "scope": "spoken"
+    },
+    {
+      "code": "bm",
+      "name": "Bambara",
+      "scope": "spoken"
+    },
+    {
+      "code": "bn",
+      "name": "Bengali",
+      "scope": "spoken"
+    },
+    {
+      "code": "bo",
+      "name": "Tibetan",
+      "scope": "spoken"
+    },
+    {
+      "code": "br",
+      "name": "Breton",
+      "scope": "spoken"
+    },
+    {
+      "code": "bs",
+      "name": "Bosnian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ca",
+      "name": "Catalan",
+      "scope": "spoken"
+    },
+    {
+      "code": "ce",
+      "name": "Chechen",
+      "scope": "spoken"
+    },
+    {
+      "code": "ch",
+      "name": "Chamorro",
+      "scope": "spoken"
+    },
+    {
+      "code": "co",
+      "name": "Corsican",
+      "scope": "spoken"
+    },
+    {
+      "code": "cr",
+      "name": "Cree",
+      "scope": "spoken"
+    },
+    {
+      "code": "cs",
+      "name": "Czech",
+      "scope": "spoken"
+    },
+    {
+      "code": "cu",
+      "name": "Church Slavic",
+      "scope": "spoken"
+    },
+    {
+      "code": "cv",
+      "name": "Chuvash",
+      "scope": "spoken"
+    },
+    {
+      "code": "cy",
+      "name": "Welsh",
+      "scope": "spoken"
+    },
+    {
+      "code": "da",
+      "name": "Danish",
+      "scope": "spoken"
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "scope": "spoken"
+    },
+    {
+      "code": "dv",
+      "name": "Divehi",
+      "scope": "spoken"
+    },
+    {
+      "code": "dz",
+      "name": "Dzongkha",
+      "scope": "spoken"
+    },
+    {
+      "code": "ee",
+      "name": "Ewe",
+      "scope": "spoken"
+    },
+    {
+      "code": "el",
+      "name": "Greek",
+      "scope": "spoken"
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "scope": "spoken"
+    },
+    {
+      "code": "eo",
+      "name": "Esperanto",
+      "scope": "spoken"
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "scope": "spoken"
+    },
+    {
+      "code": "et",
+      "name": "Estonian",
+      "scope": "spoken"
+    },
+    {
+      "code": "eu",
+      "name": "Basque",
+      "scope": "spoken"
+    },
+    {
+      "code": "fa",
+      "name": "Persian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ff",
+      "name": "Fulah",
+      "scope": "spoken"
+    },
+    {
+      "code": "fi",
+      "name": "Finnish",
+      "scope": "spoken"
+    },
+    {
+      "code": "fj",
+      "name": "Fijian",
+      "scope": "spoken"
+    },
+    {
+      "code": "fo",
+      "name": "Faroese",
+      "scope": "spoken"
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "scope": "spoken"
+    },
+    {
+      "code": "fy",
+      "name": "Western Frisian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ga",
+      "name": "Irish",
+      "scope": "spoken"
+    },
+    {
+      "code": "gd",
+      "name": "Scottish Gaelic",
+      "scope": "spoken"
+    },
+    {
+      "code": "gl",
+      "name": "Galician",
+      "scope": "spoken"
+    },
+    {
+      "code": "gn",
+      "name": "Guarani",
+      "scope": "spoken"
+    },
+    {
+      "code": "gu",
+      "name": "Gujarati",
+      "scope": "spoken"
+    },
+    {
+      "code": "gv",
+      "name": "Manx",
+      "scope": "spoken"
+    },
+    {
+      "code": "ha",
+      "name": "Hausa",
+      "scope": "spoken"
+    },
+    {
+      "code": "he",
+      "name": "Hebrew",
+      "scope": "spoken"
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ho",
+      "name": "Hiri Motu",
+      "scope": "spoken"
+    },
+    {
+      "code": "hr",
+      "name": "Croatian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ht",
+      "name": "Haitian Creole",
+      "scope": "spoken"
+    },
+    {
+      "code": "hu",
+      "name": "Hungarian",
+      "scope": "spoken"
+    },
+    {
+      "code": "hy",
+      "name": "Armenian",
+      "scope": "spoken"
+    },
+    {
+      "code": "hz",
+      "name": "Herero",
+      "scope": "spoken"
+    },
+    {
+      "code": "ia",
+      "name": "Interlingua",
+      "scope": "spoken"
+    },
+    {
+      "code": "id",
+      "name": "Indonesian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ie",
+      "name": "Interlingue",
+      "scope": "spoken"
+    },
+    {
+      "code": "ig",
+      "name": "Igbo",
+      "scope": "spoken"
+    },
+    {
+      "code": "ii",
+      "name": "Sichuan Yi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ik",
+      "name": "Inupiaq",
+      "scope": "spoken"
+    },
+    {
+      "code": "io",
+      "name": "Ido",
+      "scope": "spoken"
+    },
+    {
+      "code": "is",
+      "name": "Icelandic",
+      "scope": "spoken"
+    },
+    {
+      "code": "it",
+      "name": "Italian",
+      "scope": "spoken"
+    },
+    {
+      "code": "iu",
+      "name": "Inuktitut",
+      "scope": "spoken"
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "scope": "spoken"
+    },
+    {
+      "code": "jv",
+      "name": "Javanese",
+      "scope": "spoken"
+    },
+    {
+      "code": "ka",
+      "name": "Georgian",
+      "scope": "spoken"
+    },
+    {
+      "code": "kg",
+      "name": "Kongo",
+      "scope": "spoken"
+    },
+    {
+      "code": "ki",
+      "name": "Kikuyu",
+      "scope": "spoken"
+    },
+    {
+      "code": "kj",
+      "name": "Kuanyama",
+      "scope": "spoken"
+    },
+    {
+      "code": "kk",
+      "name": "Kazakh",
+      "scope": "spoken"
+    },
+    {
+      "code": "kl",
+      "name": "Kalaallisut",
+      "scope": "spoken"
+    },
+    {
+      "code": "km",
+      "name": "Khmer",
+      "scope": "spoken"
+    },
+    {
+      "code": "kn",
+      "name": "Kannada",
+      "scope": "spoken"
+    },
+    {
+      "code": "ko",
+      "name": "Korean",
+      "scope": "spoken"
+    },
+    {
+      "code": "kr",
+      "name": "Kanuri",
+      "scope": "spoken"
+    },
+    {
+      "code": "ks",
+      "name": "Kashmiri",
+      "scope": "spoken"
+    },
+    {
+      "code": "ku",
+      "name": "Kurdish",
+      "scope": "spoken"
+    },
+    {
+      "code": "kv",
+      "name": "Komi",
+      "scope": "spoken"
+    },
+    {
+      "code": "kw",
+      "name": "Cornish",
+      "scope": "spoken"
+    },
+    {
+      "code": "ky",
+      "name": "Kyrgyz",
+      "scope": "spoken"
+    },
+    {
+      "code": "la",
+      "name": "Latin",
+      "scope": "spoken"
+    },
+    {
+      "code": "lb",
+      "name": "Luxembourgish",
+      "scope": "spoken"
+    },
+    {
+      "code": "lg",
+      "name": "Ganda",
+      "scope": "spoken"
+    },
+    {
+      "code": "li",
+      "name": "Limburgan",
+      "scope": "spoken"
+    },
+    {
+      "code": "ln",
+      "name": "Lingala",
+      "scope": "spoken"
+    },
+    {
+      "code": "lo",
+      "name": "Lao",
+      "scope": "spoken"
+    },
+    {
+      "code": "lt",
+      "name": "Lithuanian",
+      "scope": "spoken"
+    },
+    {
+      "code": "lu",
+      "name": "Luba-Katanga",
+      "scope": "spoken"
+    },
+    {
+      "code": "lv",
+      "name": "Latvian",
+      "scope": "spoken"
+    },
+    {
+      "code": "mg",
+      "name": "Malagasy",
+      "scope": "spoken"
+    },
+    {
+      "code": "mh",
+      "name": "Marshallese",
+      "scope": "spoken"
+    },
+    {
+      "code": "mi",
+      "name": "Maori",
+      "scope": "spoken"
+    },
+    {
+      "code": "mk",
+      "name": "Macedonian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ml",
+      "name": "Malayalam",
+      "scope": "spoken"
+    },
+    {
+      "code": "mn",
+      "name": "Mongolian",
+      "scope": "spoken"
+    },
+    {
+      "code": "mr",
+      "name": "Marathi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ms",
+      "name": "Malay",
+      "scope": "spoken"
+    },
+    {
+      "code": "mt",
+      "name": "Maltese",
+      "scope": "spoken"
+    },
+    {
+      "code": "my",
+      "name": "Burmese",
+      "scope": "spoken"
+    },
+    {
+      "code": "na",
+      "name": "Nauru",
+      "scope": "spoken"
+    },
+    {
+      "code": "nb",
+      "name": "Norwegian Bokmål",
+      "scope": "spoken"
+    },
+    {
+      "code": "nd",
+      "name": "North Ndebele",
+      "scope": "spoken"
+    },
+    {
+      "code": "ne",
+      "name": "Nepali",
+      "scope": "spoken"
+    },
+    {
+      "code": "ng",
+      "name": "Ndonga",
+      "scope": "spoken"
+    },
+    {
+      "code": "nl",
+      "name": "Dutch",
+      "scope": "spoken"
+    },
+    {
+      "code": "nn",
+      "name": "Norwegian Nynorsk",
+      "scope": "spoken"
+    },
+    {
+      "code": "no",
+      "name": "Norwegian",
+      "scope": "spoken"
+    },
+    {
+      "code": "nr",
+      "name": "South Ndebele",
+      "scope": "spoken"
+    },
+    {
+      "code": "nv",
+      "name": "Navajo",
+      "scope": "spoken"
+    },
+    {
+      "code": "ny",
+      "name": "Chichewa",
+      "scope": "spoken"
+    },
+    {
+      "code": "oc",
+      "name": "Occitan",
+      "scope": "spoken"
+    },
+    {
+      "code": "oj",
+      "name": "Ojibwa",
+      "scope": "spoken"
+    },
+    {
+      "code": "om",
+      "name": "Oromo",
+      "scope": "spoken"
+    },
+    {
+      "code": "or",
+      "name": "Odia",
+      "scope": "spoken"
+    },
+    {
+      "code": "os",
+      "name": "Ossetian",
+      "scope": "spoken"
+    },
+    {
+      "code": "pa",
+      "name": "Punjabi",
+      "scope": "spoken"
+    },
+    {
+      "code": "pi",
+      "name": "Pali",
+      "scope": "spoken"
+    },
+    {
+      "code": "pl",
+      "name": "Polish",
+      "scope": "spoken"
+    },
+    {
+      "code": "ps",
+      "name": "Pashto",
+      "scope": "spoken"
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "scope": "spoken"
+    },
+    {
+      "code": "qu",
+      "name": "Quechua",
+      "scope": "spoken"
+    },
+    {
+      "code": "rm",
+      "name": "Romansh",
+      "scope": "spoken"
+    },
+    {
+      "code": "rn",
+      "name": "Rundi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ro",
+      "name": "Romanian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "scope": "spoken"
+    },
+    {
+      "code": "rw",
+      "name": "Kinyarwanda",
+      "scope": "spoken"
+    },
+    {
+      "code": "sa",
+      "name": "Sanskrit",
+      "scope": "spoken"
+    },
+    {
+      "code": "sc",
+      "name": "Sardinian",
+      "scope": "spoken"
+    },
+    {
+      "code": "sd",
+      "name": "Sindhi",
+      "scope": "spoken"
+    },
+    {
+      "code": "se",
+      "name": "Northern Sami",
+      "scope": "spoken"
+    },
+    {
+      "code": "sg",
+      "name": "Sango",
+      "scope": "spoken"
+    },
+    {
+      "code": "si",
+      "name": "Sinhala",
+      "scope": "spoken"
+    },
+    {
+      "code": "sk",
+      "name": "Slovak",
+      "scope": "spoken"
+    },
+    {
+      "code": "sl",
+      "name": "Slovenian",
+      "scope": "spoken"
+    },
+    {
+      "code": "sm",
+      "name": "Samoan",
+      "scope": "spoken"
+    },
+    {
+      "code": "sn",
+      "name": "Shona",
+      "scope": "spoken"
+    },
+    {
+      "code": "so",
+      "name": "Somali",
+      "scope": "spoken"
+    },
+    {
+      "code": "sq",
+      "name": "Albanian",
+      "scope": "spoken"
+    },
+    {
+      "code": "sr",
+      "name": "Serbian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ss",
+      "name": "Swati",
+      "scope": "spoken"
+    },
+    {
+      "code": "st",
+      "name": "Southern Sotho",
+      "scope": "spoken"
+    },
+    {
+      "code": "su",
+      "name": "Sundanese",
+      "scope": "spoken"
+    },
+    {
+      "code": "sv",
+      "name": "Swedish",
+      "scope": "spoken"
+    },
+    {
+      "code": "sw",
+      "name": "Swahili",
+      "scope": "spoken"
+    },
+    {
+      "code": "ta",
+      "name": "Tamil",
+      "scope": "spoken"
+    },
+    {
+      "code": "te",
+      "name": "Telugu",
+      "scope": "spoken"
+    },
+    {
+      "code": "tg",
+      "name": "Tajik",
+      "scope": "spoken"
+    },
+    {
+      "code": "th",
+      "name": "Thai",
+      "scope": "spoken"
+    },
+    {
+      "code": "ti",
+      "name": "Tigrinya",
+      "scope": "spoken"
+    },
+    {
+      "code": "tk",
+      "name": "Turkmen",
+      "scope": "spoken"
+    },
+    {
+      "code": "tl",
+      "name": "Tagalog",
+      "scope": "spoken"
+    },
+    {
+      "code": "tn",
+      "name": "Tswana",
+      "scope": "spoken"
+    },
+    {
+      "code": "to",
+      "name": "Tonga",
+      "scope": "spoken"
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "scope": "spoken"
+    },
+    {
+      "code": "ts",
+      "name": "Tsonga",
+      "scope": "spoken"
+    },
+    {
+      "code": "tt",
+      "name": "Tatar",
+      "scope": "spoken"
+    },
+    {
+      "code": "tw",
+      "name": "Twi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ty",
+      "name": "Tahitian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ug",
+      "name": "Uyghur",
+      "scope": "spoken"
+    },
+    {
+      "code": "uk",
+      "name": "Ukrainian",
+      "scope": "spoken"
+    },
+    {
+      "code": "ur",
+      "name": "Urdu",
+      "scope": "spoken"
+    },
+    {
+      "code": "uz",
+      "name": "Uzbek",
+      "scope": "spoken"
+    },
+    {
+      "code": "ve",
+      "name": "Venda",
+      "scope": "spoken"
+    },
+    {
+      "code": "vi",
+      "name": "Vietnamese",
+      "scope": "spoken"
+    },
+    {
+      "code": "vo",
+      "name": "Volapük",
+      "scope": "spoken"
+    },
+    {
+      "code": "wa",
+      "name": "Walloon",
+      "scope": "spoken"
+    },
+    {
+      "code": "wo",
+      "name": "Wolof",
+      "scope": "spoken"
+    },
+    {
+      "code": "xh",
+      "name": "Xhosa",
+      "scope": "spoken"
+    },
+    {
+      "code": "yi",
+      "name": "Yiddish",
+      "scope": "spoken"
+    },
+    {
+      "code": "yo",
+      "name": "Yoruba",
+      "scope": "spoken"
+    },
+    {
+      "code": "za",
+      "name": "Zhuang",
+      "scope": "spoken"
+    },
+    {
+      "code": "zh",
+      "name": "Mandarin Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "zu",
+      "name": "Zulu",
+      "scope": "spoken"
+    },
+    {
+      "code": "yue",
+      "name": "Cantonese",
+      "scope": "spoken"
+    },
+    {
+      "code": "wuu",
+      "name": "Wu Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "nan",
+      "name": "Min Nan Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "hak",
+      "name": "Hakka Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "ceb",
+      "name": "Cebuano",
+      "scope": "spoken"
+    },
+    {
+      "code": "ilo",
+      "name": "Ilocano",
+      "scope": "spoken"
+    },
+    {
+      "code": "hil",
+      "name": "Hiligaynon",
+      "scope": "spoken"
+    },
+    {
+      "code": "war",
+      "name": "Waray",
+      "scope": "spoken"
+    },
+    {
+      "code": "bho",
+      "name": "Bhojpuri",
+      "scope": "spoken"
+    },
+    {
+      "code": "mai",
+      "name": "Maithili",
+      "scope": "spoken"
+    },
+    {
+      "code": "mag",
+      "name": "Magahi",
+      "scope": "spoken"
+    },
+    {
+      "code": "new",
+      "name": "Newari",
+      "scope": "spoken"
+    },
+    {
+      "code": "gom",
+      "name": "Konkani",
+      "scope": "spoken"
+    },
+    {
+      "code": "mwr",
+      "name": "Marwari",
+      "scope": "spoken"
+    },
+    {
+      "code": "raj",
+      "name": "Rajasthani",
+      "scope": "spoken"
+    },
+    {
+      "code": "hne",
+      "name": "Chhattisgarhi",
+      "scope": "spoken"
+    },
+    {
+      "code": "ory",
+      "name": "Odia (macro)",
+      "scope": "spoken"
+    },
+    {
+      "code": "asm",
+      "name": "Assamese (macro)",
+      "scope": "spoken"
+    },
+    {
+      "code": "sat",
+      "name": "Santali",
+      "scope": "spoken"
+    },
+    {
+      "code": "mni",
+      "name": "Manipuri",
+      "scope": "spoken"
+    },
+    {
+      "code": "lus",
+      "name": "Mizo",
+      "scope": "spoken"
+    },
+    {
+      "code": "kha",
+      "name": "Khasi",
+      "scope": "spoken"
+    },
+    {
+      "code": "grt",
+      "name": "Garo",
+      "scope": "spoken"
+    },
+    {
+      "code": "kok",
+      "name": "Konkani (official)",
+      "scope": "spoken"
+    },
+    {
+      "code": "tcy",
+      "name": "Tulu",
+      "scope": "spoken"
+    },
+    {
+      "code": "doi",
+      "name": "Dogri",
+      "scope": "spoken"
+    },
+    {
+      "code": "bal",
+      "name": "Balochi",
+      "scope": "spoken"
+    },
+    {
+      "code": "bra",
+      "name": "Braj",
+      "scope": "spoken"
+    },
+    {
+      "code": "awa",
+      "name": "Awadhi",
+      "scope": "spoken"
+    },
+    {
+      "code": "pcm",
+      "name": "Nigerian Pidgin",
+      "scope": "spoken"
+    },
+    {
+      "code": "tpi",
+      "name": "Tok Pisin",
+      "scope": "spoken"
+    },
+    {
+      "code": "crs",
+      "name": "Seselwa Creole French",
+      "scope": "spoken"
+    },
+    {
+      "code": "jam",
+      "name": "Jamaican Creole English",
+      "scope": "spoken"
+    },
+    {
+      "code": "hat",
+      "name": "Haitian Creole",
+      "scope": "spoken"
+    },
+    {
+      "code": "pap",
+      "name": "Papiamento",
+      "scope": "spoken"
+    },
+    {
+      "code": "gcf",
+      "name": "Guadeloupean Creole French",
+      "scope": "spoken"
+    },
+    {
+      "code": "acf",
+      "name": "Saint Lucian Creole French",
+      "scope": "spoken"
+    },
+    {
+      "code": "fuf",
+      "name": "Pular",
+      "scope": "spoken"
+    },
+    {
+      "code": "ffm",
+      "name": "Maasina Fulfulde",
+      "scope": "spoken"
+    },
+    {
+      "code": "fuv",
+      "name": "Nigerian Fulfulde",
+      "scope": "spoken"
+    },
+    {
+      "code": "hau",
+      "name": "Hausa",
+      "scope": "spoken"
+    },
+    {
+      "code": "yor",
+      "name": "Yoruba",
+      "scope": "spoken"
+    },
+    {
+      "code": "ibo",
+      "name": "Igbo",
+      "scope": "spoken"
+    },
+    {
+      "code": "amh",
+      "name": "Amharic",
+      "scope": "spoken"
+    },
+    {
+      "code": "tir",
+      "name": "Tigrinya",
+      "scope": "spoken"
+    },
+    {
+      "code": "orm",
+      "name": "Oromo",
+      "scope": "spoken"
+    },
+    {
+      "code": "som",
+      "name": "Somali",
+      "scope": "spoken"
+    },
+    {
+      "code": "swa",
+      "name": "Swahili",
+      "scope": "spoken"
+    },
+    {
+      "code": "kin",
+      "name": "Kinyarwanda",
+      "scope": "spoken"
+    },
+    {
+      "code": "run",
+      "name": "Rundi",
+      "scope": "spoken"
+    },
+    {
+      "code": "nya",
+      "name": "Chichewa",
+      "scope": "spoken"
+    },
+    {
+      "code": "sna",
+      "name": "Shona",
+      "scope": "spoken"
+    },
+    {
+      "code": "zul",
+      "name": "Zulu",
+      "scope": "spoken"
+    },
+    {
+      "code": "xho",
+      "name": "Xhosa",
+      "scope": "spoken"
+    },
+    {
+      "code": "afr",
+      "name": "Afrikaans",
+      "scope": "spoken"
+    },
+    {
+      "code": "nso",
+      "name": "Northern Sotho",
+      "scope": "spoken"
+    },
+    {
+      "code": "sot",
+      "name": "Southern Sotho",
+      "scope": "spoken"
+    },
+    {
+      "code": "tsn",
+      "name": "Tswana",
+      "scope": "spoken"
+    },
+    {
+      "code": "ssw",
+      "name": "Swati",
+      "scope": "spoken"
+    },
+    {
+      "code": "ven",
+      "name": "Venda",
+      "scope": "spoken"
+    },
+    {
+      "code": "tso",
+      "name": "Tsonga",
+      "scope": "spoken"
+    },
+    {
+      "code": "nde",
+      "name": "North Ndebele",
+      "scope": "spoken"
+    },
+    {
+      "code": "nbl",
+      "name": "South Ndebele",
+      "scope": "spoken"
+    },
+    {
+      "code": "ber",
+      "name": "Berber",
+      "scope": "spoken"
+    },
+    {
+      "code": "kab",
+      "name": "Kabyle",
+      "scope": "spoken"
+    },
+    {
+      "code": "shi",
+      "name": "Tachelhit",
+      "scope": "spoken"
+    },
+    {
+      "code": "tzm",
+      "name": "Central Atlas Tamazight",
+      "scope": "spoken"
+    },
+    {
+      "code": "ary",
+      "name": "Moroccan Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "arz",
+      "name": "Egyptian Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "apc",
+      "name": "Levantine Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "afb",
+      "name": "Gulf Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "acq",
+      "name": "Ta'izzi-Adeni Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "ars",
+      "name": "Najdi Arabic",
+      "scope": "spoken"
+    },
+    {
+      "code": "ckb",
+      "name": "Central Kurdish",
+      "scope": "spoken"
+    },
+    {
+      "code": "kmr",
+      "name": "Northern Kurdish",
+      "scope": "spoken"
+    },
+    {
+      "code": "sdh",
+      "name": "Southern Kurdish",
+      "scope": "spoken"
+    },
+    {
+      "code": "lzh",
+      "name": "Literary Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "cmn",
+      "name": "Mandarin Chinese",
+      "scope": "spoken"
+    },
+    {
+      "code": "quc",
+      "name": "K'iche'",
+      "scope": "spoken"
+    },
+    {
+      "code": "yua",
+      "name": "Yucatec Maya",
+      "scope": "spoken"
+    },
+    {
+      "code": "nah",
+      "name": "Nahuatl",
+      "scope": "spoken"
+    },
+    {
+      "code": "aym",
+      "name": "Aymara",
+      "scope": "spoken"
+    },
+    {
+      "code": "que",
+      "name": "Quechua",
+      "scope": "spoken"
+    },
+    {
+      "code": "grn",
+      "name": "Guarani",
+      "scope": "spoken"
+    },
+    {
+      "code": "ayr",
+      "name": "Central Aymara",
+      "scope": "spoken"
+    },
+    {
+      "code": "smj",
+      "name": "Lule Sami",
+      "scope": "spoken"
+    },
+    {
+      "code": "sma",
+      "name": "Southern Sami",
+      "scope": "spoken"
+    },
+    {
+      "code": "sms",
+      "name": "Skolt Sami",
+      "scope": "spoken"
+    },
+    {
+      "code": "smn",
+      "name": "Inari Sami",
+      "scope": "spoken"
+    },
+    {
+      "code": "fao",
+      "name": "Faroese",
+      "scope": "spoken"
+    },
+    {
+      "code": "kal",
+      "name": "Kalaallisut",
+      "scope": "spoken"
+    },
+    {
+      "code": "iku",
+      "name": "Inuktitut",
+      "scope": "spoken"
+    },
+    {
+      "code": "ipk",
+      "name": "Inupiaq",
+      "scope": "spoken"
+    },
+    {
+      "code": "ale",
+      "name": "Aleut",
+      "scope": "spoken"
+    },
+    {
+      "code": "chy",
+      "name": "Cheyenne",
+      "scope": "spoken"
+    },
+    {
+      "code": "lkt",
+      "name": "Lakota",
+      "scope": "spoken"
+    },
+    {
+      "code": "dak",
+      "name": "Dakota",
+      "scope": "spoken"
+    },
+    {
+      "code": "ojb",
+      "name": "Northwestern Ojibwa",
+      "scope": "spoken"
+    },
+    {
+      "code": "crl",
+      "name": "Northern East Cree",
+      "scope": "spoken"
+    },
+    {
+      "code": "crk",
+      "name": "Plains Cree",
+      "scope": "spoken"
+    },
+    {
+      "code": "mic",
+      "name": "Mi'kmaq",
+      "scope": "spoken"
+    },
+    {
+      "code": "moe",
+      "name": "Innu",
+      "scope": "spoken"
+    }
+  ]
+}
