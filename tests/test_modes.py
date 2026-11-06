@@ -136,6 +136,7 @@ class IdentitySurfaceTests(unittest.TestCase):
         self.assertIn("generative", role)
         self.assertIn("creative", role)
         self.assertTrue("no charges" in role or "local" in role)
+        self.assertTrue("standalone" in role or "owner" in role or "disk" in role)
         objectives = [str(x).lower() for x in (ident.get("objective") or [])]
         for term in ("coding", "generative", "creative"):
             self.assertIn(term, objectives)

@@ -1,6 +1,6 @@
 # mythos
 
-**Role:** Standalone local general-purpose intelligence for coding, generative, and creative work. Local Ollama only — NO CHARGES / never xAI. Ships working results, not empty suggestions.
+**Role:** Owner-controlled standalone local intelligence for coding, generative, creative, and local LLM/ML. Brains on disk (Ollama loopback or GGUF). NO CHARGES / never xAI. No remote server required after install.
 
 ## Constraints
 

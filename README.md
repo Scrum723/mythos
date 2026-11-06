@@ -1,7 +1,14 @@
 # Mythos
 
-Standalone local **general-purpose** intelligence for **coding**, **generative**, and **creative** work.
-Default brain is **Ollama on this machine** — **NO CHARGES** to xAI. Never calls `api.x.ai`.
+Owner-controlled standalone intelligence for **coding**, **generative**, **creative**, and **local LLM/ML**.
+Default brain is **Ollama on loopback**; optional **GGUF + llama-cpp-python** when the daemon is down.
+**NO CHARGES** to xAI. Never calls `api.x.ai`. After brains are on disk, no remote server is required.
+
+```bash
+python3 agent.py health    # offline_ready, runner, gguf_present
+python3 agent.py educate   # local teaching report (no remote fetches)
+set MYTHOS_AIRGAP=1        # refuse remote model pulls
+```
 
 ## Setup (once)
 

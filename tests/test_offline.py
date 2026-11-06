@@ -77,6 +77,46 @@ class NetworkPolicyTests(unittest.TestCase):
             os.environ.update(env)
 
 
+class EducateTests(unittest.TestCase):
+    def test_educate_report_is_local_only(self):
+        from engine.educate import educate_report
+
+        settings = _settings("http://127.0.0.1:11434/v1")
+        opened: list[str] = []
+
+        def fake_urlopen(req, timeout=0):
+            url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+            opened.append(str(url))
+            raise OSError("network blocked in test")
+
+        with mock.patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            report = educate_report(settings)
+        self.assertIn("lessons", report)
+        self.assertIn("offline_ready", report)
+        self.assertIn("network_mode", report)
+        self.assertIsInstance(report["lessons"], list)
+        for url in opened:
+            self.assertTrue(
+                "127.0.0.1" in url or "localhost" in url or url.startswith("http://[::1]"),
+                msg=f"educate opened non-loopback URL: {url}",
+            )
+
+    def test_educate_cli_prints_json(self):
+        env = os.environ.copy()
+        buf = StringIO()
+        try:
+            os.environ.pop("XAI_API_KEY", None)
+            with redirect_stdout(buf):
+                code = main(["-r", str(Path(__file__).resolve().parents[1]), "educate"])
+        finally:
+            os.environ.clear()
+            os.environ.update(env)
+        self.assertEqual(code, 0)
+        data = json.loads(buf.getvalue())
+        self.assertIn("lessons", data)
+        self.assertIn("offline_ready", data)
+
+
 class GgufInferTests(unittest.TestCase):
     def test_llm_uses_gguf_when_ollama_down(self):
         import sys

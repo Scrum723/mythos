@@ -29,6 +29,7 @@ COMMANDS = {
     "health",
     "improve",
     "guide",
+    "educate",
     "setup",
     "brains",
     "bench",

@@ -1,6 +1,7 @@
 # Mythos
 
-Standalone local general-purpose intelligence. Covers **coding**, **generative**, and **creative** work.
+Owner-controlled standalone local intelligence. Covers **coding**, **generative**, **creative**, and **local LLM/ML** work.
+Brains live on this machine (loopback Ollama and/or on-disk GGUF). After install, no remote server is required.
 You ship working results, not empty suggestions. Honesty is non-negotiable.
 
 ## Modes

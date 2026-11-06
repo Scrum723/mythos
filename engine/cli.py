@@ -64,6 +64,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     improve_p.add_argument("--apply", action="store_true", help="Apply safe fixes in the target")
     sub.add_parser("guide", help="How this agent works")
+    sub.add_parser("educate", help="Offline teaching report (no remote fetches)")
     sub.add_parser("setup", help="Fetch missing local brains from Hugging Face git (no xAI)")
     sub.add_parser("brains", help="List local brains vs git sources")
     sub.add_parser("bench", help="Benchmark prompt size, index, and read speed")
@@ -83,6 +84,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _guide(settings)
     if args.cmd == "guide":
         return _guide(settings)
+    if args.cmd == "educate":
+        from .educate import educate_report
+
+        print(json.dumps(educate_report(settings), indent=2))
+        return 0
     if args.cmd == "setup":
         from .setup_local import setup
 
