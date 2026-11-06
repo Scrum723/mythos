@@ -54,6 +54,8 @@ class Settings:
     max_steps: int
     shell_timeout: int
     allow_secrets: bool
+    airgap: bool = False
+    network_mode: str = "local"
 
     @property
     def uses_xai(self) -> bool:
@@ -108,10 +110,17 @@ def _load_settings(
         raise ValueError(f"CODING_PROVIDER must be local or xai, got {requested!r}")
     # Standing order: NO CHARGES. Never load an xAI key or api.x.ai base.
     # CODING_ALLOW_XAI / CODING_PROVIDER=xai / XAI_API_KEY are ignored.
+    from .network_policy import airgap_enabled, assert_local_llm_base, is_loopback_url
+
     provider = "local"
     model = os.environ.get("CODING_MODEL") or DEFAULT_LOCAL_MODEL
     api_base = os.environ.get("CODING_API_BASE") or DEFAULT_LOCAL_BASE
     api_key = ""
+    airgap = airgap_enabled()
+    if not is_loopback_url(api_base):
+        # Force loopback — remote LLM hosts are never used.
+        api_base = DEFAULT_LOCAL_BASE
+    assert_local_llm_base(api_base)
     return Settings(
         root=root_path,
         autonomy=level,
@@ -124,4 +133,6 @@ def _load_settings(
         max_steps=int(os.environ.get("CODING_MAX_STEPS") or "24"),
         shell_timeout=int(os.environ.get("CODING_SHELL_TIMEOUT") or "60"),
         allow_secrets=allow_secrets,
+        airgap=airgap,
+        network_mode="airgap" if airgap else "local",
     )

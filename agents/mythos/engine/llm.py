@@ -7,6 +7,7 @@ import urllib.request
 from typing import Any
 
 from .config import Settings, local_reachable
+from .network_policy import assert_local_llm_base
 from .security import redact
 
 CHAT_PATH = "/chat/completions"
@@ -44,6 +45,10 @@ class LLMClient:
                 "NO CHARGES: this agent will not call xAI. "
                 "Keep CODING_PROVIDER=local. Local Ollama only."
             )
+        try:
+            assert_local_llm_base(self.settings.api_base)
+        except ValueError as exc:
+            raise LLMError(str(exc)) from exc
         if not self.available:
             raise LLMError(self.missing_brain_message())
         payload: dict[str, Any] = {

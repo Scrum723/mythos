@@ -132,6 +132,10 @@ def setup(settings: Settings) -> int:
         print("CODING_PROVIDER=xai — not downloading a local brain.")
         print("Set CODING_PROVIDER=local in .env to stay off xAI billing.")
         return 1
+    if getattr(settings, "airgap", False):
+        print("Airgap mode is on (MYTHOS_AIRGAP=1). Refusing remote model pulls.")
+        print(f"Place a GGUF under {models_dir()} or turn airgap off for first-time setup.")
+        return 1
     ollama = _ensure_ollama()
     if not ollama:
         print("Could not install Ollama. Install from https://ollama.com/download")
