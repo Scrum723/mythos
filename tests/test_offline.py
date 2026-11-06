@@ -2,10 +2,17 @@
 
 from __future__ import annotations
 
+import json
 import os
+import tempfile
 import unittest
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
+from unittest import mock
 
+from engine.brain_status import brain_status
+from engine.cli import main
 from engine.config import Settings
 from engine.llm import LLMClient, LLMError
 from engine.network_policy import airgap_enabled, assert_local_llm_base, is_loopback_url
@@ -68,6 +75,43 @@ class NetworkPolicyTests(unittest.TestCase):
         finally:
             os.environ.clear()
             os.environ.update(env)
+
+
+class BrainStatusTests(unittest.TestCase):
+    def test_brain_status_reports_missing_gguf(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            models = Path(tmp) / "models"
+            models.mkdir()
+            settings = _settings("http://127.0.0.1:11434/v1")
+            with mock.patch("engine.brain_status.models_dir", return_value=models):
+                with mock.patch("engine.brain_status.local_reachable", return_value=False):
+                    with mock.patch("engine.brain_status.llama_cpp_available", return_value=False):
+                        status = brain_status(settings)
+        self.assertFalse(status["gguf_present"])
+        self.assertIsNone(status["gguf_path"])
+        self.assertEqual(status["runner"], "none")
+        self.assertFalse(status["offline_ready"])
+        self.assertIn(status["network_mode"], {"local", "airgap"})
+        self.assertIn("airgap", status)
+
+    def test_health_includes_offline_fields(self):
+        env = os.environ.copy()
+        buf = StringIO()
+        try:
+            os.environ.pop("XAI_API_KEY", None)
+            with redirect_stdout(buf):
+                code = main(["-r", str(Path(__file__).resolve().parents[1]), "health"])
+        finally:
+            os.environ.clear()
+            os.environ.update(env)
+        self.assertEqual(code, 0)
+        data = json.loads(buf.getvalue())
+        for key in ("offline_ready", "gguf_present", "network_mode", "runner", "airgap"):
+            self.assertIn(key, data)
+        self.assertEqual(data["provider"], "local")
+        self.assertFalse(data["bills_xai"])
+        self.assertIn(data["network_mode"], {"local", "airgap"})
+        self.assertIn(data["runner"], {"ollama", "llama_cpp", "none"})
 
 
 if __name__ == "__main__":

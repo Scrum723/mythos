@@ -32,7 +32,10 @@ class Desk:
 
     def snapshot(self) -> dict[str, Any]:
         with self.lock:
+            from .brain_status import brain_status
+
             ident = identity()
+            status = brain_status(self.settings)
             return {
                 "service": ident.get("name") or "mythos",
                 "role": ident.get("role") or "",
@@ -42,13 +45,19 @@ class Desk:
                 "autonomy": self.settings.autonomy,
                 "provider": self.settings.provider,
                 "model": self.settings.model,
-                "has_llm": self.settings.has_llm,
+                "has_llm": self.settings.has_llm or status.get("offline_ready", False),
                 "bills_xai": self.settings.uses_xai,
                 "busy": self.busy,
                 "pending": self.pending,
                 "seq": self.seq,
                 "language": detect(self.settings.root),
                 "last_report": self.last_report,
+                "offline_ready": status.get("offline_ready"),
+                "gguf_present": status.get("gguf_present"),
+                "gguf_path": status.get("gguf_path"),
+                "runner": status.get("runner"),
+                "airgap": status.get("airgap"),
+                "network_mode": status.get("network_mode"),
             }
 
     def emit(self, event: dict[str, Any]) -> None:

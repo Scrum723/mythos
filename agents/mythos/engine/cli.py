@@ -144,7 +144,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.cmd == "improve":
         return _improve(args.target, settings, apply=args.apply)
     if args.cmd == "health":
+        from .brain_status import brain_status
+
         ident = identity()
+        status = brain_status(settings)
         print(
             json.dumps(
                 {
@@ -156,10 +159,16 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "autonomy": settings.autonomy,
                     "provider": settings.provider,
                     "model": settings.model,
-                    "has_llm": settings.has_llm,
+                    "has_llm": settings.has_llm or status.get("offline_ready", False),
                     "bills_xai": settings.uses_xai,
                     "host": settings.host,
                     "port": settings.port,
+                    "offline_ready": status.get("offline_ready"),
+                    "gguf_present": status.get("gguf_present"),
+                    "gguf_path": status.get("gguf_path"),
+                    "runner": status.get("runner"),
+                    "airgap": status.get("airgap"),
+                    "network_mode": status.get("network_mode"),
                 },
                 indent=2,
             )
