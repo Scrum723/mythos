@@ -77,6 +77,51 @@ class NetworkPolicyTests(unittest.TestCase):
             os.environ.update(env)
 
 
+class GgufInferTests(unittest.TestCase):
+    def test_llm_uses_gguf_when_ollama_down(self):
+        import sys
+        import types
+
+        from engine import gguf_infer, llm as llm_mod
+        from engine.llm import LLMClient
+
+        calls: list[str] = []
+
+        class FakeLlama:
+            def __init__(self, *args, **kwargs):
+                calls.append("init")
+
+            def create_chat_completion(self, messages=None, **kwargs):
+                calls.append("chat")
+                return {
+                    "choices": [
+                        {
+                            "message": {"content": "mythos-offline-ok", "role": "assistant"},
+                            "finish_reason": "stop",
+                        }
+                    ]
+                }
+
+        fake = types.ModuleType("llama_cpp")
+        fake.Llama = FakeLlama
+        with tempfile.TemporaryDirectory() as tmp:
+            gguf = Path(tmp) / "brain.gguf"
+            gguf.write_bytes(b"0" * 1_000_001)
+            settings = _settings("http://127.0.0.1:11434/v1")
+            client = LLMClient(settings)
+            with mock.patch.dict(sys.modules, {"llama_cpp": fake}):
+                with mock.patch.object(llm_mod, "local_reachable", return_value=False):
+                    with mock.patch("engine.gguf_infer.resolve_gguf", return_value=gguf):
+                        with mock.patch("engine.brain_status.resolve_gguf", return_value=gguf):
+                            with mock.patch("engine.brain_status.local_reachable", return_value=False):
+                                self.assertTrue(gguf_infer.llama_cpp_available())
+                                self.assertTrue(client.available)
+                                result = client.chat([{"role": "user", "content": "hi"}])
+        self.assertEqual(result.get("content"), "mythos-offline-ok")
+        self.assertIn("chat", calls)
+        self.assertEqual(result.get("tool_calls"), [])
+
+
 class BrainStatusTests(unittest.TestCase):
     def test_brain_status_reports_missing_gguf(self):
         with tempfile.TemporaryDirectory() as tmp:

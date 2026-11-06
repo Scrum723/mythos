@@ -26,7 +26,11 @@ class LLMClient:
     def available(self) -> bool:
         if self.settings.uses_xai:
             return bool(self.settings.api_key)
-        return local_reachable(self.settings.api_base)
+        if local_reachable(self.settings.api_base):
+            return True
+        from .gguf_infer import can_run_gguf
+
+        return can_run_gguf(self.settings)
 
     def missing_brain_message(self) -> str:
         if self.settings.uses_xai:
@@ -35,6 +39,7 @@ class LLMClient:
             "No local model is running. This agent does not use Grok.\n"
             "Install once, then it runs on your machine:\n"
             "  python3 agent.py setup\n"
+            "Or place a GGUF under models/ and pip install llama-cpp-python for daemon-free inference.\n"
             "or:\n"
             "  brew install ollama && ollama serve && ollama pull qwen2.5-coder:7b"
         )
@@ -51,6 +56,25 @@ class LLMClient:
             raise LLMError(str(exc)) from exc
         if not self.available:
             raise LLMError(self.missing_brain_message())
+
+        # Prefer loopback Ollama; fall back to in-process GGUF (no remote server).
+        if not local_reachable(self.settings.api_base):
+            from .gguf_infer import gguf_chat
+            from .brain_status import resolve_gguf
+
+            gguf = resolve_gguf(self.settings)
+            if gguf is None:
+                raise LLMError(self.missing_brain_message())
+            try:
+                result = gguf_chat(messages, model_path=gguf, tools=tools)
+            except Exception as exc:  # noqa: BLE001 — surface as LLMError
+                raise LLMError(f"local GGUF error: {exc}") from exc
+            if not result.get("tool_calls") and result.get("content"):
+                parsed = _parse_text_tools(result["content"])
+                if parsed:
+                    result["tool_calls"] = parsed
+            return result
+
         payload: dict[str, Any] = {
             "model": self.settings.model,
             "messages": messages,
