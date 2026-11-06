@@ -83,14 +83,21 @@ def run_task(
 
     client = LLMClient(settings)
     if not client.available:
-        report = (
-            client.missing_brain_message()
-            + f"\nDetected language: {lang.get('primary')}\n"
-            + "Heuristic plan:\n"
-            + json.dumps(plan, indent=2)
+        # Standalone stage: operate with zero model dependency.
+        from .standalone import run_standalone
+
+        standalone = run_standalone(task, settings=settings, mode=mode, confirmer=confirmer)
+        for event in standalone.get("events") or []:
+            emit(event)
+        report = redact(str(standalone.get("report") or ""))
+        return RunResult(
+            bool(standalone.get("ok")),
+            report,
+            standalone.get("plan") or plan,
+            events,
+            standalone.get("language") or lang.get("primary", "unknown"),
+            False,
         )
-        emit({"type": "report", "data": {"ok": False, "report": report}})
-        return RunResult(False, report, plan, events, lang.get("primary", "unknown"), False)
 
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": system_prompt(settings, extra_system, mode=mode)},

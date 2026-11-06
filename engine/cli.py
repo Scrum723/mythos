@@ -177,11 +177,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "autonomy": settings.autonomy,
                     "provider": settings.provider,
                     "model": settings.model,
-                    "has_llm": settings.has_llm or status.get("offline_ready", False),
+                    "has_llm": settings.has_llm,
                     "bills_xai": settings.uses_xai,
                     "host": settings.host,
                     "port": settings.port,
                     "offline_ready": status.get("offline_ready"),
+                    "standalone_ready": status.get("standalone_ready"),
+                    "model_required": status.get("model_required", False),
+                    "model_optional": status.get("model_optional", True),
                     "gguf_present": status.get("gguf_present"),
                     "gguf_path": status.get("gguf_path"),
                     "runner": status.get("runner"),
@@ -223,7 +226,8 @@ def _guide(settings: Settings) -> int:
                 "Modes: code (implement), create (generative/creative), chat (talk).",
                 "Default brain is a local model, not Grok.",
                 f"Provider: {settings.provider}  brain: {brain}",
-                f"Local model ready: {'yes' if settings.has_llm else 'NO — run python3 agent.py setup'}",
+                f"Standalone (no model required): yes",
+                f"Optional local model: {'yes' if settings.has_llm else 'not running — Mythos still works'}",
                 "",
                 "  python3 agent.py setup",
                 "  python3 agent.py serve --port 8790",
@@ -253,11 +257,7 @@ def _improve(target: str | None, settings: Settings, *, apply: bool) -> int:
     print(json.dumps(report, indent=2))
     if not apply:
         return 0 if report["fails"] == 0 else 1
-    if not settings.has_llm:
-        from .llm import LLMClient
-
-        print(LLMClient(settings).missing_brain_message(), file=sys.stderr)
-        return 1
+    # Model is optional — standalone engine can still apply an improve task.
     settings.root = path
     return _run(coach.improve_task(path, apply=True), settings)
 
@@ -273,7 +273,7 @@ def _chat(settings: Settings) -> int:
     print(f"workspace: {settings.root}")
     print("Standalone local intelligence (coding + generative + creative). /help  /quit")
     if not settings.has_llm:
-        print("Local model is not running. python3 agent.py setup")
+        print("Optional local model not running — standalone engine is active (no model required).")
     chat_mode = "chat"
     while True:
         try:

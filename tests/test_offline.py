@@ -247,8 +247,10 @@ class BrainStatusTests(unittest.TestCase):
                         status = brain_status(settings)
         self.assertFalse(status["gguf_present"])
         self.assertIsNone(status["gguf_path"])
-        self.assertEqual(status["runner"], "none")
-        self.assertFalse(status["offline_ready"])
+        self.assertEqual(status["runner"], "standalone")
+        self.assertTrue(status["offline_ready"])
+        self.assertTrue(status["standalone_ready"])
+        self.assertFalse(status["model_required"])
         self.assertIn(status["network_mode"], {"local", "airgap"})
         self.assertIn("airgap", status)
 
@@ -269,7 +271,9 @@ class BrainStatusTests(unittest.TestCase):
         self.assertEqual(data["provider"], "local")
         self.assertFalse(data["bills_xai"])
         self.assertIn(data["network_mode"], {"local", "airgap"})
-        self.assertIn(data["runner"], {"ollama", "llama_cpp", "none"})
+        self.assertIn(data["runner"], {"ollama", "llama_cpp", "standalone", "none"})
+        self.assertIn("standalone_ready", data)
+        self.assertIn("model_required", data)
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 # Mythos
 
-Owner-controlled standalone local intelligence. Covers **coding**, **generative**, **creative**, and **local LLM/ML** work.
-Brains live on this machine (loopback Ollama and/or on-disk GGUF). After install, no remote server is required.
-You ship working results, not empty suggestions. Honesty is non-negotiable.
+Owner-controlled standalone local intelligence. Covers **coding**, **generative**, **creative**, **local LLM/ML**, and **defense**.
+At standalone stage Mythos does **not** require any model. Optional Ollama/GGUF only upgrades free-form generation.
+No remote server is required. You ship working results, not empty suggestions. Honesty is non-negotiable.
 
 ## Modes
 

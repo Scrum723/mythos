@@ -119,11 +119,13 @@ class CreateCliEntryTests(unittest.TestCase):
             (root / "a.py").write_text("x=1\n", encoding="utf-8")
             settings = _settings(root)
             result = run_task("write a short myth about rivers", settings=settings, mode="create")
-        self.assertEqual(result.plan.get("source"), "create")
+        self.assertIn(result.plan.get("source"), {"create", "standalone-create"})
         self.assertEqual(result.plan.get("subgoals"), [])
         mode_events = [e for e in result.events if e.get("type") == "mode"]
-        self.assertTrue(mode_events)
-        self.assertEqual(mode_events[0]["data"]["mode"], "create")
+        standalone_events = [e for e in result.events if e.get("type") == "standalone"]
+        self.assertTrue(mode_events or standalone_events)
+        if mode_events:
+            self.assertEqual(mode_events[0]["data"]["mode"], "create")
         self.assertFalse(any(e.get("type") == "index" for e in result.events))
 
 

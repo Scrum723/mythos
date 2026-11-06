@@ -45,7 +45,7 @@ class Desk:
                 "autonomy": self.settings.autonomy,
                 "provider": self.settings.provider,
                 "model": self.settings.model,
-                "has_llm": self.settings.has_llm or status.get("offline_ready", False),
+                "has_llm": self.settings.has_llm,
                 "bills_xai": self.settings.uses_xai,
                 "busy": self.busy,
                 "pending": self.pending,
@@ -53,6 +53,9 @@ class Desk:
                 "language": detect(self.settings.root),
                 "last_report": self.last_report,
                 "offline_ready": status.get("offline_ready"),
+                "standalone_ready": status.get("standalone_ready"),
+                "model_required": status.get("model_required", False),
+                "model_optional": status.get("model_optional", True),
                 "gguf_present": status.get("gguf_present"),
                 "gguf_path": status.get("gguf_path"),
                 "runner": status.get("runner"),
@@ -234,14 +237,7 @@ def make_server(settings: Settings, host: str = "127.0.0.1", port: int = 8790) -
                 if apply:
                     if desk.busy:
                         return self._json(409, {"error": "busy", "scan": report})
-                    if not desk.settings.has_llm:
-                        return self._json(
-                            409,
-                            {
-                                "error": "Local Ollama is not available. Scan only — will not call a paid API or pretend to patch.",
-                                "scan": report,
-                            },
-                        )
+                    # Improve-apply can run via standalone engine when no model is present.
                     desk.settings.root = target
                     desk.start_run(coach.improve_task(target, apply=True), desk.settings.autonomy)
                     return self._json(202, {"status": "started", "scan": report})

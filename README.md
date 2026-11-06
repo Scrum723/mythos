@@ -1,8 +1,9 @@
 # Mythos
 
-Owner-controlled standalone intelligence for **coding**, **generative**, **creative**, and **local LLM/ML**.
-Default brain is **Ollama on loopback**; optional **GGUF + llama-cpp-python** when the daemon is down.
-**NO CHARGES** to xAI. Never calls `api.x.ai`. After brains are on disk, no remote server is required.
+Owner-controlled standalone intelligence for **coding**, **generative**, **creative**, **local LLM/ML**, and **defense**.
+**Standalone stage needs no model** — tools, knowledge library, and defense run locally with zero LLM dependency.
+Optional **Ollama** / **GGUF** only upgrades free-form generation quality.
+**NO CHARGES** to xAI. Never calls `api.x.ai`.
 
 ```bash
 python3 agent.py health      # offline_ready, runner, gguf_present

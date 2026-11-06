@@ -34,17 +34,24 @@ def resolve_gguf(settings: Settings | None = None) -> Path | None:
 
 
 def brain_status(settings: Settings) -> dict[str, Any]:
+    from .standalone import is_standalone_ready
+
     gguf = resolve_gguf(settings)
     ollama_up = local_reachable(settings.api_base)
     llama = llama_cpp_available() and gguf is not None
+    standalone = is_standalone_ready()
     if ollama_up:
         runner = "ollama"
     elif llama:
         runner = "llama_cpp"
+    elif standalone:
+        runner = "standalone"
     else:
         runner = "none"
-    offline_ready = runner in {"ollama", "llama_cpp"} and (
-        ollama_up or (gguf is not None and llama_cpp_available())
+    # Offline/standalone ready without any model once the local engine is present.
+    offline_ready = standalone or (
+        runner in {"ollama", "llama_cpp"}
+        and (ollama_up or (gguf is not None and llama_cpp_available()))
     )
     airgap = bool(getattr(settings, "airgap", False))
     network_mode = getattr(settings, "network_mode", None) or ("airgap" if airgap else "local")
@@ -53,6 +60,9 @@ def brain_status(settings: Settings) -> dict[str, Any]:
         "gguf_path": str(gguf) if gguf else None,
         "runner": runner,
         "offline_ready": bool(offline_ready),
+        "standalone_ready": bool(standalone),
+        "model_required": False,
+        "model_optional": True,
         "airgap": airgap,
         "network_mode": network_mode,
         "model": settings.model,

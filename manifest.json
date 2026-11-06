@@ -1,6 +1,6 @@
 {
   "name": "mythos",
-  "role": "Owner-controlled standalone local intelligence combining coding, generative, creative, local LLM/ML, and local defense. Expanded coding library (Python, HTML/JS/CSS, Java, C/C++, COBOL, R, MATLAB, …) plus planet-scale spoken-language catalog. Brains on disk. NO CHARGES / never xAI.",
+  "role": "Owner-controlled standalone local intelligence combining coding, generative, creative, local LLM/ML, and local defense. At standalone stage no model is required. Optional on-disk brains only upgrade generation. Expanded coding + spoken catalogs. NO CHARGES / never xAI.",
   "tools": [
     "list_dir",
     "read_file",
