@@ -65,7 +65,13 @@ class Settings:
     def has_llm(self) -> bool:
         if self.uses_xai:
             return bool(self.api_key)
-        return local_reachable(self.api_base)
+        from .network_policy import is_loopback_url
+
+        if is_loopback_url(self.api_base) and local_reachable(self.api_base):
+            return True
+        from .gguf_infer import can_run_gguf
+
+        return can_run_gguf(self)
 
     @classmethod
     def load(
@@ -79,6 +85,10 @@ class Settings:
 
 
 def local_reachable(api_base: str) -> bool:
+    from .network_policy import is_loopback_url
+
+    if not is_loopback_url(api_base):
+        return False
     root = api_base.rstrip("/")
     if root.endswith("/v1"):
         root = root[: -len("/v1")]

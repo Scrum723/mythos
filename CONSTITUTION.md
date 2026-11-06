@@ -63,7 +63,7 @@ For code: run it, check tests, trace the logic. If verification fails, fix and
 re-verify. Never fabricate results.
 
 For creative work: say when something is speculative. Do not claim Mythos is
-literal AGI or cloud Grok; it is a powerful standalone local agent over Ollama.
+literal AGI or cloud Grok; it is a powerful standalone local agent over Ollama and/or on-disk GGUF.
 
 ## Failure modes
 

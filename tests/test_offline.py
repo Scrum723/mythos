@@ -39,6 +39,79 @@ def _settings(api_base: str) -> Settings:
         return Settings(**kwargs)
 
 
+class HasLlmAlignmentTests(unittest.TestCase):
+    def test_settings_has_llm_true_when_gguf_backend_ready(self):
+        import sys
+        import types
+
+        from engine import llm as llm_mod
+
+        fake = types.ModuleType("llama_cpp")
+        fake.Llama = object
+        settings = _settings("http://127.0.0.1:11434/v1")
+        with tempfile.TemporaryDirectory() as tmp:
+            gguf = Path(tmp) / "brain.gguf"
+            gguf.write_bytes(b"0" * 1_000_001)
+            with mock.patch.dict(sys.modules, {"llama_cpp": fake}):
+                with mock.patch.object(llm_mod, "local_reachable", return_value=False):
+                    with mock.patch("engine.gguf_infer.resolve_gguf", return_value=gguf):
+                        with mock.patch("engine.brain_status.resolve_gguf", return_value=gguf):
+                            with mock.patch("engine.config.local_reachable", return_value=False):
+                                self.assertTrue(settings.has_llm)
+                                self.assertTrue(LLMClient(settings).available)
+
+    def test_missing_brain_mentions_install_llama_when_gguf_present(self):
+        settings = _settings("http://127.0.0.1:11434/v1")
+        with tempfile.TemporaryDirectory() as tmp:
+            gguf = Path(tmp) / "brain.gguf"
+            gguf.write_bytes(b"0" * 1_000_001)
+            with mock.patch("engine.config.local_reachable", return_value=False):
+                with mock.patch("engine.llm.local_reachable", return_value=False):
+                    with mock.patch("engine.gguf_infer.llama_cpp_available", return_value=False):
+                        with mock.patch("engine.brain_status.resolve_gguf", return_value=gguf):
+                            with mock.patch("engine.gguf_infer.resolve_gguf", return_value=gguf):
+                                msg = LLMClient(settings).missing_brain_message().lower()
+        self.assertIn("gguf", msg)
+        self.assertTrue("llama-cpp" in msg or "llama_cpp" in msg)
+        self.assertIn("brain.gguf", msg.replace("\\", "/").lower())
+
+    def test_available_does_not_probe_non_loopback(self):
+        opened: list[str] = []
+
+        def fake_urlopen(req, timeout=0):
+            url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+            opened.append(str(url))
+            raise OSError("blocked")
+
+        settings = _settings("https://example.com/v1")
+        with mock.patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            client = LLMClient(settings)
+            with self.assertRaises(LLMError):
+                client.chat([{"role": "user", "content": "hi"}])
+            # available may be consulted; must not open remote
+            _ = client.available
+        for url in opened:
+            self.assertFalse(url.startswith("https://example.com"), msg=url)
+
+    def test_health_offline_fields_stable_across_two_runs(self):
+        env = os.environ.copy()
+        try:
+            os.environ.pop("XAI_API_KEY", None)
+            buf1, buf2 = StringIO(), StringIO()
+            with redirect_stdout(buf1):
+                c1 = main(["-r", str(Path(__file__).resolve().parents[1]), "health"])
+            with redirect_stdout(buf2):
+                c2 = main(["-r", str(Path(__file__).resolve().parents[1]), "health"])
+        finally:
+            os.environ.clear()
+            os.environ.update(env)
+        self.assertEqual(c1, 0)
+        self.assertEqual(c2, 0)
+        d1, d2 = json.loads(buf1.getvalue()), json.loads(buf2.getvalue())
+        for key in ("offline_ready", "gguf_present", "network_mode", "runner", "airgap", "provider", "bills_xai"):
+            self.assertEqual(d1.get(key), d2.get(key), msg=key)
+
+
 class NetworkPolicyTests(unittest.TestCase):
     def test_is_loopback_accepts_localhost_and_rejects_remote(self):
         self.assertTrue(is_loopback_url("http://127.0.0.1:11434/v1"))

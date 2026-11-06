@@ -26,7 +26,9 @@ class LLMClient:
     def available(self) -> bool:
         if self.settings.uses_xai:
             return bool(self.settings.api_key)
-        if local_reachable(self.settings.api_base):
+        from .network_policy import is_loopback_url
+
+        if is_loopback_url(self.settings.api_base) and local_reachable(self.settings.api_base):
             return True
         from .gguf_infer import can_run_gguf
 
@@ -35,13 +37,28 @@ class LLMClient:
     def missing_brain_message(self) -> str:
         if self.settings.uses_xai:
             return "CODING_PROVIDER=xai but XAI_API_KEY is empty. This agent defaults to a local model so you are not billed by xAI."
+        from .brain_status import resolve_gguf
+        from .gguf_infer import llama_cpp_available
+
+        gguf = resolve_gguf(self.settings)
+        if gguf is not None and not llama_cpp_available():
+            return (
+                f"GGUF found at {gguf} but llama-cpp-python is not installed.\n"
+                "Install for daemon-free local inference:\n"
+                "  pip install llama-cpp-python\n"
+                "Or start local Ollama on 127.0.0.1:11434 (no xAI)."
+            )
+        if gguf is not None and llama_cpp_available():
+            return (
+                f"Local GGUF present ({gguf}) but the runner failed to start.\n"
+                "Retry, or start Ollama on loopback."
+            )
         return (
             "No local model is running. This agent does not use Grok.\n"
             "Install once, then it runs on your machine:\n"
             "  python3 agent.py setup\n"
-            "Or place a GGUF under models/ and pip install llama-cpp-python for daemon-free inference.\n"
-            "or:\n"
-            "  brew install ollama && ollama serve && ollama pull qwen2.5-coder:7b"
+            "Or place a GGUF under models/ and: pip install llama-cpp-python\n"
+            "Windows/macOS/Linux: install Ollama locally and run ollama serve on 127.0.0.1."
         )
 
     def chat(self, messages: list[dict[str, Any]], tools: list[dict[str, Any]] | None = None) -> dict[str, Any]:
