@@ -57,14 +57,26 @@ def _ensure_ollama() -> str | None:
     ollama = shutil.which("ollama")
     if ollama:
         return ollama
+    # Common Windows install locations (winget / OllamaSetup.exe).
+    candidates = [
+        Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Ollama" / "ollama.exe",
+        Path(os.environ.get("ProgramFiles", r"C:\Program Files")) / "Ollama" / "ollama.exe",
+    ]
+    for path in candidates:
+        if path.is_file():
+            return str(path)
     brew = shutil.which("brew")
-    if not brew:
-        return None
-    print("Installing Ollama with Homebrew (local runner, not xAI)...")
-    proc = subprocess.run(["brew", "install", "ollama"], check=False)
-    if proc.returncode != 0:
-        return None
-    return shutil.which("ollama")
+    if brew:
+        print("Installing Ollama with Homebrew (local runner, not xAI)...")
+        proc = subprocess.run(["brew", "install", "ollama"], check=False)
+        if proc.returncode == 0:
+            return shutil.which("ollama")
+    return None
+
+
+def _ollama_pull(ollama: str, name: str) -> int:
+    print(f"Pulling local brain via Ollama registry: {name} (no xAI)...")
+    return subprocess.run([ollama, "pull", name], check=False).returncode
 
 
 def _ensure_ollama_up(settings: Settings, ollama: str) -> bool:
@@ -149,11 +161,19 @@ def setup(settings: Settings) -> int:
     name = spec["ollama"]
     if any(n == name or n.startswith(name) for n in have):
         print(f"Brain already present locally: {name}")
-        print("Not cloning a second 4.7GB copy from git (disk is tight).")
-        print(f"Git source if you ever need it: {spec['git']}")
+        print("Not downloading a second copy (disk is tight).")
+        print(f"Optional git source: {spec['git']}")
         print("No xAI key required.")
         return 0
 
+    # Prefer Ollama pull on Windows — faster than cloning a full HF GGUF repo.
+    pull_code = _ollama_pull(ollama, name)
+    have = ollama_names(settings.api_base)
+    if pull_code == 0 and any(n == name or n.startswith(name) for n in have):
+        print(f"Local brain ready via Ollama pull: {name}. No xAI key required.")
+        return 0
+
+    print("Ollama pull did not finish — trying Hugging Face git GGUF fallback...")
     gguf = _git_fetch_gguf(spec)
     if not gguf:
         return 1

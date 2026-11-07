@@ -44,6 +44,11 @@ CORE_LESSONS = [
         "title": "GitHub MCP catalog (local library)",
         "body": "Pages 1–10 of https://github.com/mcp are catalogued under data/knowledge/mcp_catalog.json; later pages scoured for Mythos-relevant tools. Catalog ≠ mass-install — keep standalone local.",
     },
+    {
+        "id": "agency",
+        "title": "Local free-will agency",
+        "body": "self-prompt / defer / ignore-note agenda under data/agency/. No remote MCP required. Run: python agent.py agency status",
+    },
 ]
 
 

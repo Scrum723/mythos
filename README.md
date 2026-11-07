@@ -9,6 +9,8 @@ Optional **Ollama** / **GGUF** only upgrades free-form generation quality.
 python3 agent.py health      # offline_ready, runner, gguf_present
 python3 agent.py educate     # local teaching report (no remote fetches)
 python3 agent.py knowledge   # coding + spoken-language library + defense posture
+python3 agent.py agency status
+python3 agent.py agency self-prompt "review defense posture"
 set MYTHOS_AIRGAP=1          # refuse remote model pulls
 ```
 

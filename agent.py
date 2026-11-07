@@ -31,6 +31,7 @@ COMMANDS = {
     "guide",
     "educate",
     "knowledge",
+    "agency",
     "setup",
     "brains",
     "bench",

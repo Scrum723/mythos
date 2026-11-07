@@ -13,3 +13,5 @@ data/*.jsonl
 
 .worktrees/
 .superpowers/
+
+data/agency/*.jsonl

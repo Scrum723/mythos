@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Sequence
+from typing import Any, Sequence
 
 from . import coach, improve
 from .agent import run_task
@@ -66,6 +66,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     sub.add_parser("guide", help="How this agent works")
     sub.add_parser("educate", help="Offline teaching report (no remote fetches)")
     sub.add_parser("knowledge", help="Local knowledge library (coding + spoken + defense)")
+    agency_p = sub.add_parser("agency", help="Local free-will agency (self-prompt / defer / list)")
+    agency_sub = agency_p.add_subparsers(dest="agency_cmd", required=True)
+    sp = agency_sub.add_parser("self-prompt", help="Queue a self-directed follow-up")
+    sp.add_argument("prompt", help="What Mythos should pursue next")
+    df = agency_sub.add_parser("defer", help="Defer a wake reminder locally")
+    df.add_argument("--seconds", type=int, default=60)
+    df.add_argument("--reason", default="")
+    ig = agency_sub.add_parser("ignore", help="Record a conscious ignore-note")
+    ig.add_argument("note", help="Why this was set aside")
+    agency_sub.add_parser("list", help="List agenda items")
+    agency_sub.add_parser("status", help="Agency snapshot")
     sub.add_parser("setup", help="Fetch missing local brains from Hugging Face git (no xAI)")
     sub.add_parser("brains", help="List local brains vs git sources")
     sub.add_parser("bench", help="Benchmark prompt size, index, and read speed")
@@ -101,6 +112,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print(json.dumps(snap, indent=2))
         return 0
+    if args.cmd == "agency":
+        return _agency(args, settings)
     if args.cmd == "setup":
         from .setup_local import setup
 
@@ -260,6 +273,36 @@ def _improve(target: str | None, settings: Settings, *, apply: bool) -> int:
     # Model is optional — standalone engine can still apply an improve task.
     settings.root = path
     return _run(coach.improve_task(path, apply=True), settings)
+
+
+def _agency(args: Any, settings: Settings) -> int:
+    from .agency import (
+        agency_snapshot,
+        defer_self,
+        ignore_with_note,
+        list_agenda,
+        self_prompt,
+    )
+
+    cmd = getattr(args, "agency_cmd", None)
+    if cmd == "self-prompt":
+        print(json.dumps(self_prompt(args.prompt, autonomy=settings.autonomy), indent=2))
+        return 0
+    if cmd == "defer":
+        print(json.dumps(defer_self(seconds=args.seconds, reason=args.reason), indent=2))
+        return 0
+    if cmd == "ignore":
+        print(json.dumps(ignore_with_note(args.note), indent=2))
+        return 0
+    if cmd == "list":
+        items = list_agenda()
+        print(json.dumps({"count": len(items), "items": items}, indent=2))
+        return 0
+    if cmd == "status":
+        print(json.dumps(agency_snapshot(), indent=2))
+        return 0
+    print("usage: agency self-prompt|defer|ignore|list|status", file=sys.stderr)
+    return 2
 
 
 def _run(task: str, settings: Settings, *, mode: str = "code") -> int:
