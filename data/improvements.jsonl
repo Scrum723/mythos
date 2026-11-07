@@ -14,3 +14,13 @@
 {"ts": "2026-09-20T21:54:55.268672+00:00", "area": "agent creation", "note": "Created a new agent named 'mythos' with the specified role, tools, constraints, and prompt. The agent is designed to run locally and is self-contained, adhering to the specified autonomy levels and security guidelines.", "task": ""}
 {"ts": "2026-09-20T21:55:19.486496+00:00", "area": "agent creation", "note": "Created a new agent named 'mythos' with the specified role, tools, constraints, and prompt. The agent is designed to run locally and is self-contained, adhering to the specified autonomy levels and security guidelines.", "task": ""}
 {"ts": "2026-09-22T21:58:36.977244+00:00", "area": "task execution", "note": "UI-task failure lesson: pasted Flask tutorial with fake api.docweatherai.com and wrote no files (blank screen). Fix: ship meteorological_ui with stdlib server + real NWS/SPC maps; follow efficient method look→write→run→verify→log; never invent APIs.", "task": "meteorological charts UI"}
+{"ts": "2026-11-07T01:28:51.892649+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-07T01:28:54.810036+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-07T01:28:56.736310+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-07T01:29:11.477889+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-07T01:29:13.274246+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-07T01:29:15.111257+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-07T01:49:25.850966+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-07T01:49:28.653489+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-07T01:49:31.564095+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-07T01:53:19.114378+00:00", "area": "extreme", "note": "Extreme council on: one-line strengths", "task": "one-line strengths"}

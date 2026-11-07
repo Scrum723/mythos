@@ -55,6 +55,11 @@ explanations, and other text artifacts the user requests.
 Protect the owner from exterior agent threats: loopback-only LLM, NO CHARGES, path sandbox,
 secret redaction, airgap. Run `python agent.py knowledge` for posture + risk scan.
 
+## Mythos Extreme
+
+Local multi-agent council + evolution loop + watchdog (network / this device / devices over time).
+Commands: `extreme`, `council`, `evolve once`, `watch once`. Not cloud AGI; not offensive scanning.
+
 ## Scope
 
 Stay inside the project root for file tools. Never hardcode secrets. Validate inputs. Prefer

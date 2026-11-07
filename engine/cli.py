@@ -77,6 +77,22 @@ def main(argv: Sequence[str] | None = None) -> int:
     ig.add_argument("note", help="Why this was set aside")
     agency_sub.add_parser("list", help="List agenda items")
     agency_sub.add_parser("status", help="Agency snapshot")
+
+    extreme_p = sub.add_parser("extreme", help="Mythos Extreme council swarm (+ watchdog)")
+    extreme_p.add_argument("mission", help="Mission for the local multi-agent council")
+    council_p = sub.add_parser("council", help="Run Extreme council only")
+    council_p.add_argument("mission", help="Council mission")
+    evolve_p = sub.add_parser("evolve", help="Self-evolution loop")
+    evolve_sub = evolve_p.add_subparsers(dest="evolve_cmd", required=True)
+    evolve_once_p = evolve_sub.add_parser("once", help="Run one evolution cycle")
+    evolve_once_p.add_argument("--mission", default=None, help="Override agency queue")
+    evolve_sub.add_parser("status", help="Evolution ledger status")
+    watch_p = sub.add_parser("watch", help="Network/device/devices watchdog over time")
+    watch_sub = watch_p.add_subparsers(dest="watch_cmd", required=True)
+    watch_sub.add_parser("once", help="Take one local snapshot")
+    watch_sub.add_parser("status", help="Watchdog history summary")
+    watch_sub.add_parser("history", help="Show recent snapshots")
+
     sub.add_parser("setup", help="Fetch missing local brains from Hugging Face git (no xAI)")
     sub.add_parser("brains", help="List local brains vs git sources")
     sub.add_parser("bench", help="Benchmark prompt size, index, and read speed")
@@ -114,6 +130,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.cmd == "agency":
         return _agency(args, settings)
+    if args.cmd == "extreme":
+        from .extreme import run_extreme
+
+        out = run_extreme(args.mission, settings=settings)
+        print(out.get("report") or json.dumps(out, indent=2))
+        return 0 if out.get("ok") else 1
+    if args.cmd == "council":
+        from .council import run_council
+
+        out = run_council(args.mission, settings=settings)
+        print(out.get("synthesis") or json.dumps(out, indent=2))
+        return 0 if out.get("ok") else 1
+    if args.cmd == "evolve":
+        return _evolve(args, settings)
+    if args.cmd == "watch":
+        return _watch(args, settings)
     if args.cmd == "setup":
         from .setup_local import setup
 
@@ -273,6 +305,48 @@ def _improve(target: str | None, settings: Settings, *, apply: bool) -> int:
     # Model is optional — standalone engine can still apply an improve task.
     settings.root = path
     return _run(coach.improve_task(path, apply=True), settings)
+
+
+def _evolve(args: Any, settings: Settings) -> int:
+    from .evolution import evolve_once, evolution_status
+
+    cmd = getattr(args, "evolve_cmd", None)
+    if cmd == "once":
+        out = evolve_once(settings=settings, mission=getattr(args, "mission", None))
+        print(json.dumps({"ok": out.get("ok"), "cycle": out.get("cycle")}, indent=2))
+        print("\n" + (out.get("extreme") or {}).get("report", ""))
+        return 0 if out.get("ok") else 1
+    if cmd == "status":
+        print(json.dumps(evolution_status(), indent=2))
+        return 0
+    print("usage: evolve once|status", file=sys.stderr)
+    return 2
+
+
+def _watch(args: Any, settings: Settings) -> int:
+    from .watchdog import snapshot_path, watch_once, watch_status
+
+    cmd = getattr(args, "watch_cmd", None)
+    if cmd == "once":
+        print(json.dumps(watch_once(settings=settings), indent=2))
+        return 0
+    if cmd == "status":
+        print(json.dumps(watch_status(), indent=2))
+        return 0
+    if cmd == "history":
+        path = snapshot_path()
+        rows = []
+        if path.is_file():
+            for line in path.read_text(encoding="utf-8").splitlines()[-10:]:
+                if line.strip():
+                    try:
+                        rows.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        continue
+        print(json.dumps({"count": len(rows), "items": rows}, indent=2))
+        return 0
+    print("usage: watch once|status|history", file=sys.stderr)
+    return 2
 
 
 def _agency(args: Any, settings: Settings) -> int:
