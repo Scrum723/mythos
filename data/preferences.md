@@ -42,6 +42,14 @@
 ## Neural
 - Pattern sources live in data/knowledge/neural/; runtime does not depend on those remotes.
 
+## Learned 2026-11-10 — extensive training session
+- Council seats are one-job bots with must-not lines (Poteto).
+- Synthesizer = chief of staff; owner spot-checks.
+- Creator seat coaches; owner presses publish.
+- Defender owns watchdog cadence; stop the line on non-loopback LLM.
+- Coding: retrieve→write→verify→improve with proof.
+- Training log: data/evolution/training/
+
 ## Learned 2026-09-22 — UI tasks (critical)
 - Never paste a tutorial and stop. **Write the files, run the server, verify the browser.**
 - Never invent fake APIs (`api.docweatherai.com`). Use real free sources (NWS `api.weather.gov`, SPC/WPC public maps) or code that already exists in the user's DOC projects.
@@ -49,3 +57,6 @@
 - Prefer Python **stdlib** HTTP for simple UIs (see `meteorological_ui/`). No Flask/pip unless asked.
 - NO CHARGES: no XAI keys, no paid weather APIs.
 - After shipping UI: print the exact URL and command to open it.
+
+## Learned 2026-11-10
+- creator-flywheel playbook implemented and explored

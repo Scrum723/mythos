@@ -11,27 +11,42 @@ from .knowledge import knowledge_snapshot
 SEATS: list[dict[str, Any]] = [
     {
         "id": "coder",
-        "role": "Implement and explore with project tools. Prefer small diffs and verification.",
+        "role": (
+            "One job: implement. retrieve→write→verify→improve. Small diffs. "
+            "Never invent APIs. Hand in proof (tests/commands). Must not: tutorials-only replies."
+        ),
         "mode": "code",
     },
     {
         "id": "creator",
-        "role": "Generative/creative angle — vivid options without forced code-explore.",
+        "role": (
+            "One job: creator flywheel. Coach scripts (not ghostwrite-first); edit-plan then wait for owner; "
+            "analytics→lesson. Must not: auto-publish or spend."
+        ),
         "mode": "create",
     },
     {
         "id": "defender",
-        "role": "Local defense: airgap, loopback LLM, secrets, exterior risks, watchdog posture.",
+        "role": (
+            "One job: local defense + watchdog. Loopback LLM, airgap, secrets, network/device/devices drift. "
+            "Stop the line on non-loopback LLM or exterior risk. Must not: offensive scanning."
+        ),
         "mode": "chat",
     },
     {
         "id": "critic",
-        "role": "Attack the plan. List failure modes, missing tests, and overclaims.",
+        "role": (
+            "One job: quality lead. Attack plans; failure modes; missing proof; overclaims. "
+            "Must not: implement or soft-pedal risks."
+        ),
         "mode": "chat",
     },
     {
         "id": "synthesizer",
-        "role": "Merge prior seats into one actionable verdict for the owner.",
+        "role": (
+            "Chief of staff: merge seats into do-now / risks / next self-prompt with proof asks. "
+            "Assign; do not redo seat work. Owner is bottleneck — remove steps that still need them."
+        ),
         "mode": "chat",
     },
 ]
