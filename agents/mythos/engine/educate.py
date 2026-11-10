@@ -49,6 +49,21 @@ CORE_LESSONS = [
         "title": "Local free-will agency",
         "body": "self-prompt / defer / ignore-note agenda under data/agency/. No remote MCP required. Run: python agent.py agency status",
     },
+    {
+        "id": "poteto",
+        "title": "Poteto ops method",
+        "body": "Trust ladder, one job per bot, chief of staff, routines ≤ hourly, closed loops with proof. See data/knowledge/playbooks/poteto-ops.md",
+    },
+    {
+        "id": "creator",
+        "title": "Creator flywheel",
+        "body": "Learn→idea→script→edit→distribute→analyze. Human-in-the-loop publish. See data/knowledge/playbooks/creator-flywheel.md",
+    },
+    {
+        "id": "neural",
+        "title": "Neural pattern graph",
+        "body": "Ingested open-source Grok-bot/agent patterns under data/knowledge/neural/. Run: python agent.py neural status && python agent.py neural train",
+    },
 ]
 
 

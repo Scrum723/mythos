@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "unit": "mythos-neural-network",
+  "honesty": "Local knowledge graph of open-source patterns. Mythos does not merge proprietary weights or require these repos at runtime. Large repos (duckdb/ccxt/eliza) are catalog-only.",
+  "no_charges": true,
+  "source_count": 29,
+  "ingested_readmes": 28,
+  "nodes": [
+    {
+      "id": "mKay00__grok-bot-second-brain",
+      "owner": "mKay00",
+      "repo": "grok-bot-second-brain",
+      "url": "https://github.com/mKay00/grok-bot-second-brain",
+      "domain": "memory",
+      "readme_ingested": true,
+      "summary": "Five Grok Bots, one vault This repo is the plan for a personal knowledge-and-action system on Grok Bot (https://x.ai/bot). Five named teammates share one vault: Conductor assigns, Capture processes inboxes, Memory keeps claims and the working file, Ops writes next actions, Research writes drafts. You publish. You send. It is not a live second brain and not an installer that clicks the official UI for you. After setup, the live tree sits on the shared Grok Bot computer. This repo stays the cloneable shape. Five is the point. A 26-bot roster is the thing this plan refuses. Start here Give a Grok Bot this URL and tell it to set the repo up: https://github.com/mKay00/grok-bot-second-brain That bot reads this file, asks you the questions in PLAN.md , copies the vault template, and walks you through the clicks it cannot do. It is a setup helper. It is not a sixth roster member. Keep it out of ",
+      "local_path": "data/knowledge/neural/sources/mKay00__grok-bot-second-brain.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "serenakeyitan__agent-org-chart",
+      "owner": "serenakeyitan",
+      "repo": "agent-org-chart",
+      "url": "https://github.com/serenakeyitan/agent-org-chart",
+      "domain": "org",
+      "readme_ingested": true,
+      "summary": "Awesome Agent Org Charts check out my recent work at https://github.com/first-tree-ai/opentag Portable org charts you can import on any agent platform with a spawn CLI. Pick one focused org that matches your use case — each chart is a small, importable team pattern. Works with Grok Bot, OpenAI dots, and any agent that can create teammates or background agents. Browse them at agent-org-chart-ecru.vercel.app (https://agent-org-chart-ecru.vercel.app). <img width=\"841\" height=\"377\" alt=\"Screenshot 2026-10-26 at 02 07 53\" src=\"https://github.com/user-attachments/assets/469d2c19-83e6-40d1-bda3-9e2fa9276c3c\" / ! Awesome (https://awesome.re/badge.svg) ! Public (https://img.shields.io/badge/catalog-public-lightgrey.svg) Table of Contents - 101 ( 101) — 101 team - Customer Support ( customer-support) — Customer support team - Engineering ( engineering) — Engineering team - Founders ( founders) — F",
+      "local_path": "data/knowledge/neural/sources/serenakeyitan__agent-org-chart.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "jaredtrichard__grok-factory",
+      "owner": "jaredtrichard",
+      "repo": "grok-factory",
+      "url": "https://github.com/jaredtrichard/grok-factory",
+      "domain": "spawn",
+      "readme_ingested": true,
+      "summary": "<h1 align=\"center\" Grok Factory</h1 <p align=\"center\" <a href=\"https://img.shields.io/badge/platform-Grok%20Bot-blue?style=flat-square\" <img alt=\"Platform\" src=\"https://img.shields.io/badge/platform-Grok%20Bot-blue?style=flat-square\" / </a </p <h3 align=\"center\" Software, research, and general-purpose on Grok Bot.</h3 What it is Grok Factory is a standalone Grok Bot pack. One Grok Bot. One Firstmate. Software, research, and everything else: - Software — A ship is a pull request. - Research — Scan for a money-making idea, or cover a name. cover updates that name in the equity-research GitHub repo. The PR is how the files land. - Everything else — scout or ship under the reserved default project. Bots never execute on the captain's computer. They run on the shared Grok Bot computer. Cursor cloud does software work and the heavy research: gathering, model building, and research. Grok bots s",
+      "local_path": "data/knowledge/neural/sources/jaredtrichard__grok-factory.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "simo255__multiBot",
+      "owner": "simo255",
+      "repo": "multiBot",
+      "url": "https://github.com/simo255/multiBot",
+      "domain": "swarm",
+      "readme_ingested": true,
+      "summary": "multiBot Grok Bot template: https://x.ai/bot/Ey28W_8uyJPN_DS_M2CvD Grok Bot factory — spawn teammates with CLI underground + custom purpose: | CLI | Binary | |-----|--------| | Cursor | agent | | grok-build | grok-agent | | Antigravity | agy | | OpenAI Codex | codex exec | | Claude Code | claude -p | | OpenCode | opencode run | Grok native orchestrates only ; all deep work runs in the CLI subprocess. Inspired by the eggbot + Cursor-CLI-delegation pattern. Quick start Easiest: import the Grok Bot template (https://x.ai/bot/Ey28W_8uyJPN_DS_M2CvD), then chat /setup-multibot . Manual (Grok Bot box): 1. Create a new Grok Bot named multiBot (copy description from import/profile.json (import/profile.json)) 2. Chat: /setup-multibot 3. Chat: \"Create a Cursor CLI bot that manages my calendar and email\" multiBot asks CLI type + purpose → CreateAgent → bootstraps the child. Architecture | Layer | Ro",
+      "local_path": "data/knowledge/neural/sources/simo255__multiBot.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "Archive228__foreman",
+      "owner": "Archive228",
+      "repo": "foreman",
+      "url": "https://github.com/Archive228/foreman",
+      "domain": "ops",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"./assets/hero.svg\" alt=\"foreman — a harness for hosted Grok Bot crews. Its core rule: it is not allowed to guess.\" width=\"100%\" </p <p align=\"center\" <a href=\"https://github.com/Archive228/foreman/actions/workflows/ci.yml\" <img alt=\"CI\" src=\"https://github.com/Archive228/foreman/actions/workflows/ci.yml/badge.svg\" </a <img alt=\"Node 18+\" src=\"https://img.shields.io/badge/node-%3E%3D18-75d69c?style=flat-square\" <img alt=\"12 indicators\" src=\"https://img.shields.io/badge/indicators-12-78a9ff?style=flat-square\" <img alt=\"103 tests\" src=\"https://img.shields.io/badge/tests-103-a78bfa?style=flat-square\" <img alt=\"Runtime dependencies: zero\" src=\"https://img.shields.io/badge/runtime_dependencies-0-fbbf24?style=flat-square\" <img alt=\"License: MIT\" src=\"https://img.shields.io/badge/license-MIT-e5e7eb?style=flat-square\" </p Grok Bot is a hosted product. There is no dry r",
+      "local_path": "data/knowledge/neural/sources/Archive228__foreman.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "YannisKiefer__grokbot-x",
+      "owner": "YannisKiefer",
+      "repo": "grokbot-x",
+      "url": "https://github.com/YannisKiefer/grokbot-x",
+      "domain": "bot",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <a href=\"https://yanniskiefer.github.io/grokbot-x/\" <img src=\"docs/brand/hero.png\" alt=\"EcomBrain's grokbot-x scouts the gold, drafts in your voice, waits for your yes, and every night SkillOpt keeps only what worked.\" width=\"100%\" </a grokbot-x The self-learning X growth agent for Grok Bot. <br Open source from EcomBrain (https://ecombrain.io/?utm_source=github&utm_medium=grokbot-x&utm_campaign=oss&utm_content=readme-top), the AI operator for online stores. ! GitHub stars (https://img.shields.io/github/stars/YannisKiefer/grokbot-x?style=flat&color=171717) (https://github.com/YannisKiefer/grokbot-x/stargazers) ! CI (https://github.com/YannisKiefer/grokbot-x/actions/workflows/ci.yml/badge.svg) (https://github.com/YannisKiefer/grokbot-x/actions/workflows/ci.yml) ! Python 3.10+ (https://img.shields.io/badge/python-3.10%2B-171717) (pyproject.toml) ! Zero dependencies (htt",
+      "local_path": "data/knowledge/neural/sources/YannisKiefer__grokbot-x.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "function1st__PhoneZero",
+      "owner": "function1st",
+      "repo": "PhoneZero",
+      "url": "https://github.com/function1st/PhoneZero",
+      "domain": "voice",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"plugins/phonezero/assets/logo.png\" alt=\"PhoneZero\" width=\"160\" height=\"160\" </p PhoneZero ! License: MIT (https://img.shields.io/badge/License-MIT-yellow.svg) (LICENSE) Enable voice-to-voice tasks in Grok Bot and Cursor. PhoneZero is a runtime plus phone skills . The first skill books a restaurant table by phone; chat reports exactly one outcome: succeeded ( booked alias) | unavailable | no_answer | needs_user | unknown | failed . Custom asks: Cursor local skill folder, or Grok interviews into a task JSON. Zero infrastructure. MIT (LICENSE). Sample implementation — use is on you; see Disclaimer (DISCLAIMER.md). No product support. YMMV. How-to: docs/SKILLS.md (docs/SKILLS.md). What you need Setup stops without all of these: - Telnyx: KYC done, one US number, API key - xAI: team with Zero Data Retention off , that team’s API key, Voice Agent Builder at console.",
+      "local_path": "data/knowledge/neural/sources/function1st__PhoneZero.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "mandarwagh9__botroster",
+      "owner": "mandarwagh9",
+      "repo": "botroster",
+      "url": "https://github.com/mandarwagh9/botroster",
+      "domain": "roster",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"docs/botroster-readme-thread.png\" alt=\"The BOTROSTER desktop client. A sidebar lists four Bots — Talent Scout, Release Notes, Expense Manager, Support Triage — each with the job it does. Talent Scout is part-way through screening applications: it listed the workspace, read three files, opened a candidate's GitHub page and wrote a shortlist, each step one line with a green tick and what it returned, and one command still running at the bottom. A third column on the right holds the Agent Computer.\" width=\"900\" </p <h1 align=\"center\" BOTROSTER</h1 <p align=\"center\" <b Persistent, named AI teammates that share one durable computer.</b <br Open source. Self-hostable. Every consequential action asks you first. </p <p align=\"center\" <a href=\"https://github.com/mandarwagh9/botroster/actions/workflows/ci.yml\" <img alt=\"CI\" src=\"https://github.com/mandarwagh9/botroster/",
+      "local_path": "data/knowledge/neural/sources/mandarwagh9__botroster.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "galleonlabs__hypergrok-trading-desk",
+      "owner": "galleonlabs",
+      "repo": "hypergrok-trading-desk",
+      "url": "https://github.com/galleonlabs/hypergrok-trading-desk",
+      "domain": "trading",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <picture <source media=\"(max-width: 600px)\" srcset=\"assets/hero-mobile.svg\" <img src=\"assets/hero.svg\" width=\"800\" alt=\"HyperGrok, a Hyperliquid trading desk for Grok Bot. Your trading desk, fully staffed. A ticket moves along the trading floor from the Desk Lead and analysts to the Risk Manager, waits for your approval, then the Execution Trader sends it once to Hyperliquid and the Trade Reviewer records it.\" </picture </p <p align=\"center\" <a href=\"https://github.com/galleonlabs/hypergrok-trading-desk/releases\" <img src=\"https://img.shields.io/github/v/release/galleonlabs/hypergrok-trading-desk?style=flat-square&labelColor=071815&color=1d4a43&label=release\" alt=\"Latest release\" </a <a href=\"https://www.npmjs.com/package/hypergrok-trading-desk\" <img src=\"https://img.shields.io/npm/v/hypergrok-trading-desk?style=flat-square&labelColor=071815&color=1d4a43&label=npm\" alt=",
+      "local_path": "data/knowledge/neural/sources/galleonlabs__hypergrok-trading-desk.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "HAEGONG__grok-bot-profiles",
+      "owner": "HAEGONG",
+      "repo": "grok-bot-profiles",
+      "url": "https://github.com/HAEGONG/grok-bot-profiles",
+      "domain": "profiles",
+      "readme_ingested": true,
+      "summary": "Grok Bot Profiles English (README.md) | 한국어 (README.ko.md) One outcome. One approval boundary. One bot. Ready-to-use profiles for Grok Bots. Each profile gives a bot one focused job, a concrete deliverable, and an explicit point where its authority ends. General-purpose agents blur responsibility. This collection keeps specification, investigation, implementation, and verification separate so a bot never approves its own work. Quick start Grok Bot does not import local files. To install a profile: 1. Create a new Grok Bot. 2. Copy the profile's Setup prompt URL from the table below. 3. Paste the URL as the bot's first message. 4. Connect GitHub when the bot asks for it. 5. Send the First task from the profile's README. SETUP.md fetches the profile and configures the bot's Name, Title, and Description. Do not paste PROFILE.md into Description by hand. | Profile | Use it when you need to |",
+      "local_path": "data/knowledge/neural/sources/HAEGONG__grok-bot-profiles.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "sansan0__TrendRadar",
+      "owner": "sansan0",
+      "repo": "TrendRadar",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "domain": "trends",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" id=\"trendradar\" <a href=\"https://github.com/sansan0/TrendRadar\" title=\"TrendRadar\" <img src=\"/_image/banner.webp\" alt=\"TrendRadar Banner\" width=\"80%\" </a 最快<strong 30秒</strong 部署的热点助手 —— 告别无效刷屏，只看真正关心的新闻资讯 <a href=\"https://trendradar.sandev.cc/zh/\" title=\"TrendRadar 官方网站\" <strong 🌐 官方网站</strong </a · <a href=\"https://trendradar.sandev.cc/zh/docs/quick-start/\" title=\"TrendRadar 官网文档\" <strong 📖 官网文档</strong </a · <a href=\"https://trendradar.sandev.cc/zh/docs/self-hosted-sources/\" title=\"AI 自建热榜数据源\" <strong AI 自建热榜数据源</strong </a <a href=\"https://trendshift.io/repositories/14726?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-14726\" target=\"_blank\" rel=\"noopener noreferrer\" <img src=\"https://trendshift.io/api/badge/trendshift/repositories/14726/monthly\" alt=\"sansan0%2FTrendRadar | Trendshift\" width=\"250\" height=\"55\"/ </a ! GitHub Stars ",
+      "local_path": "data/knowledge/neural/sources/sansan0__TrendRadar.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "laaielichter__Ai-edit-studio",
+      "owner": "laaielichter",
+      "repo": "Ai-edit-studio",
+      "url": "https://github.com/laaielichter/Ai-edit-studio",
+      "domain": "creator",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"docs/site/assets/icon.png\" alt=\"AI Edit Studio icon\" width=\"96\" height=\"96\" </p AI Edit Studio — Director 0.12 <p align=\"center\" <b Your footage. Your story. Your studio.</b <br A local-first video editor for creators and their AI agents.</p <p align=\"center\" <a href=\"https://laaielichter.github.io/Ai-edit-studio/\" Project website</a · <a href=\" install-and-start-windows-beta\" Get started</a · <a href=\"docs/INTEGRATIONS.md\" Connect your agent</a · <a href=\"CONTRIBUTING.md\" Contribute</a </p ! Project website (https://img.shields.io/badge/Project_website-Visit-ff603d?style=flat-square) (https://laaielichter.github.io/Ai-edit-studio/) ! CI (https://github.com/laaielichter/Ai-edit-studio/actions/workflows/ci.yml/badge.svg) (https://github.com/laaielichter/Ai-edit-studio/actions/workflows/ci.yml) ! License: MIT (https://img.shields.io/badge/License-MIT-202220?styl",
+      "local_path": "data/knowledge/neural/sources/laaielichter__Ai-edit-studio.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "blacktwist__social-media-skills",
+      "owner": "blacktwist",
+      "repo": "social-media-skills",
+      "url": "https://github.com/blacktwist/social-media-skills",
+      "domain": "creator",
+      "readme_ingested": true,
+      "summary": "Social Media Skills AI agent skills for social media content strategy, creation, and analysis across text-first and visual-first platforms. Skill Catalog Foundation | Skill | Description | | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | | social-media-context-sms (skills/social-media-context-sms/) | Captures platform context, audience details, content pillars, and tone preferences used by all other skills | Strategy | Skill | Description | | ---------------------------------------------- | --------------------------------------------------------------------------------------- | | content-strategy-sms (skills/content-strategy-sms/) | Defines content pillars, audience targeting, and positioning for consistent brand voice | | content-calendar-sms (skills/content-calendar-sm",
+      "local_path": "data/knowledge/neural/sources/blacktwist__social-media-skills.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "ben-mad-jlp__grok-game-mcp",
+      "owner": "ben-mad-jlp",
+      "repo": "grok-game-mcp",
+      "url": "https://github.com/ben-mad-jlp/grok-game-mcp",
+      "domain": "games",
+      "readme_ingested": true,
+      "summary": "grok-game-mcp A standalone MCP server for Grok-powered game-asset generation — sprites, directional animation sheets, voiceover, SFX, and chiptune music. Extracted from the claude-mermaid-collab dogfood into a self-contained project (only dependency on Grok is an API key; rendering is pure-TS via jimp + ffmpeg , both bundled). Setup Run the MCP server (stdio): Register it with any MCP client (e.g. Claude) as a stdio server running bun run src/server.ts . Tools | Tool | What it makes | | --- | --- | | generate_image | a still image (Grok Imagine) | | generate_sprite_sheet | directional animation sheet: {character, animation, frames, angles} → packed angles×frames transparent atlas + manifest + engine exports (Aseprite/Phaser/Godot) | | generate_voiceover | Grok TTS (voices eve/ara/rex/sal/leo) + optional shared DSP preset | | generate_sfx | retro SFX — Grok-text picks sfxr params → pure-J",
+      "local_path": "data/knowledge/neural/sources/ben-mad-jlp__grok-game-mcp.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "Nitro70__ai-jarvis",
+      "owner": "Nitro70",
+      "repo": "ai-jarvis",
+      "url": "https://github.com/Nitro70/ai-jarvis",
+      "domain": "assistant",
+      "readme_ingested": true,
+      "summary": "Jarvis A real, working voice assistant for your PC. Talk to it like JARVIS from Iron Man — play music, open apps, control windows, look things up — without giving up control of your system. - Modular: pick your LLM (Claude subscription, Anthropic API, OpenAI, xAI/Grok, local LM Studio…), pick your tools, pick voice or text mode. - Safe by design: every capability is a small, typed tool. There is no run_arbitrary_shell_command tool. The worst misunderstanding opens the wrong app — it can't delete your files. - Local speech-to-text (Whisper) and free high-quality text-to-speech (Edge TTS). No paid subscription required for the audio layer. - Wake-word activated (\"Jarvis…\") with auto-endpoint detection — no push-to-talk. --- Quick start First run with voice mode will download the Whisper models (~75-150MB, one time). --- LLM backends Configure under llm.backend in config.yaml . Pick one: cl",
+      "local_path": "data/knowledge/neural/sources/Nitro70__ai-jarvis.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "Songstats__songstats-ai-plugin",
+      "owner": "Songstats",
+      "repo": "songstats-ai-plugin",
+      "url": "https://github.com/Songstats/songstats-ai-plugin",
+      "domain": "music",
+      "readme_ingested": true,
+      "summary": "Songstats for Gemini CLI and Grok Build <img src=\"assets/icon.png\" alt=\"Songstats\" width=\"96\" / Official Songstats integration from The Stats Company. Ask questions about your artists, labels, collaborators, and tracks through the Songstats MCP server. The package includes the songstats-music-analytics skill and a remote MCP connection. Gemini CLI Review the extension's permissions when prompted. Start a new Gemini CLI session and complete the Songstats OAuth sign-in when prompted. If needed, run /mcp auth songstats inside Gemini CLI. Use /mcp to check the connection. Grok Build Install from this source repository while marketplace review is pending: The --trust option enables this plugin's skill and MCP connection; review the source before granting trust. Restart the session or refresh the Plugins tab, then use /mcps to complete OAuth sign-in and check the connection. Try it Summarize t",
+      "local_path": "data/knowledge/neural/sources/Songstats__songstats-ai-plugin.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "echoomegaprime__echo-music-studio",
+      "owner": "echoomegaprime",
+      "repo": "echo-music-studio",
+      "url": "https://github.com/echoomegaprime/echo-music-studio",
+      "domain": "music",
+      "readme_ingested": true,
+      "summary": "Echo Suno Studio — API plugin Public API version. Compose with Grok, GPT, Claude, or Qwen . Generate through the Suno Platform API (Bearer key in a server-side vault). Clone a voice with ElevenLabs and inject it into a Suno vocal stem. Repo: echoomegaprime/echo-music-studio (https://github.com/echoomegaprime/echo-music-studio) This repo does not scrape suno.com and does not store consumer-site cookies. Each user pastes their own official (or documented REST) API credential. The key never enters the model context. Personal operator (your Suno web account, session cookie) is a separate private repo : echo-suno-operator . Architects | Model | Env | | --- | --- | | Grok | XAI_API_KEY | | GPT | OPENAI_API_KEY | | Claude | ANTHROPIC_API_KEY | | Qwen | QWEN_API_KEY or DASHSCOPE_API_KEY | Suno Platform key + ElevenLabs key → Vault after sign-in. Connector See CONNECTOR.md (./CONNECTOR.md) and do",
+      "local_path": "data/knowledge/neural/sources/echoomegaprime__echo-music-studio.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "AdwaveInc__wavemaker-plugins",
+      "owner": "AdwaveInc",
+      "repo": "wavemaker-plugins",
+      "url": "https://github.com/AdwaveInc/wavemaker-plugins",
+      "domain": "music",
+      "readme_ingested": true,
+      "summary": "Wavemaker for AI agents Wavemaker (https://wavemaker.io) is a complete creative studio your agent can use. Ask for a product video, a set of ad images, a jingle, a voiceover, sound effects or a full HTML5 banner set, and Wavemaker writes, designs, shoots, scores and edits it, then checks the result against the spec of where it is going (YouTube, TikTok, Instagram, Meta, Google Ads, IAB display). This repository holds Wavemaker's plugin for every agent host. They all connect the same remote MCP server and carry the same skill: | Setting | Value | | --- | --- | | MCP server | https://api.wavemaker.io/mcp (Streamable HTTP) | | Sign-in | OAuth 2.1 with PKCE; dynamic client registration and client ID metadata documents; scopes read run write | | Without OAuth | Authorization: Bearer <workspace key from the Wavemaker web app | | Registry name | io.wavemaker/wavemaker on the official MCP Regist",
+      "local_path": "data/knowledge/neural/sources/AdwaveInc__wavemaker-plugins.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "elizaOS__eliza",
+      "owner": "elizaOS",
+      "repo": "eliza",
+      "url": "https://github.com/elizaOS/eliza",
+      "domain": "agents",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <img src=\"packages/ui/assets/banners/elizaos_banner.svg\" alt=\"elizaOS\" width=\"100%\" / <h1 elizaOS</h1 <p <strong Your agentic operating system.</strong </p <p <a href=\"https://eliza.app\" Eliza</a · <a href=\"https://cloud.eliza.app\" Eliza Cloud</a · <a href=\"https://os.eliza.app\" elizaOS downloads</a · <a href=\"https://docs.elizaos.ai/\" Documentation</a </p </div elizaOS is an open-source TypeScript framework and product stack for autonomous AI agents. This monorepo contains the core runtime, the Eliza app, the CLI, cloud services, native bridges, and first-party plugins. Linux and Android distribution tooling lives in packages/os (packages/os/README.md). Choose a starting point | Goal | Start here | | --- | --- | | Use Eliza | Open the web app (https://cloud.eliza.app), visit Eliza downloads (https://eliza.app/downloads), or use a published GitHub release (https://git",
+      "local_path": "data/knowledge/neural/sources/elizaOS__eliza.md",
+      "vendor_policy": "catalog-only-too-large",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "ccxt__ccxt",
+      "owner": "ccxt",
+      "repo": "ccxt",
+      "url": "https://github.com/ccxt/ccxt",
+      "domain": "trading",
+      "readme_ingested": true,
+      "summary": "CCXT – CryptoCurrency eXchange Trading Library ! NPM Downloads (https://img.shields.io/npm/dy/ccxt.svg) (https://www.npmjs.com/package/ccxt) ! npm (https://img.shields.io/npm/v/ccxt.svg) (https://npmjs.com/package/ccxt) ! PyPI (https://img.shields.io/pypi/v/ccxt.svg) (https://pypi.python.org/pypi/ccxt) ! NuGet version (https://img.shields.io/nuget/v/ccxt) (https://www.nuget.org/packages/ccxt) ! GoDoc (https://img.shields.io/github/v/tag/ccxt/ccxt?label=go) (https://godoc.org/github.com/ccxt/ccxt/go/v4) ! Mvn (https://badges.mvnrepository.com/badge/io.github.ccxt/ccxt/badge.svg?label=mvn) (https://mvnrepository.com/artifact/io.github.ccxt/ccxt) ! Packagist (https://img.shields.io/packagist/v/ccxt/ccxt) (https://packagist.org/packages/ccxt/ccxt) ! Crates.io (https://img.shields.io/crates/v/ccxt.svg) (https://crates.io/crates/ccxt) ! Supported Exchanges (https://img.shields.io/badge/exchang",
+      "local_path": "data/knowledge/neural/sources/ccxt__ccxt.md",
+      "vendor_policy": "catalog-only-too-large",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "xai-org__xai-sdk-python",
+      "owner": "xai-org",
+      "repo": "xai-sdk-python",
+      "url": "https://github.com/xai-org/xai-sdk-python",
+      "domain": "sdk-ref",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <img src=\"https://avatars.githubusercontent.com/u/130314967?s=200&v=4\" alt=\"xAI Logo\" width=\"100\" / <h1 xAI Python SDK</h1 <p The official Python SDK for xAI's APIs</p <a href=\"https://pypi.org/project/xai-sdk\" <img src=\"https://img.shields.io/pypi/v/xai-sdk\" alt=\"PyPI Version\" / </a <a href=\"\" <img src=\"https://img.shields.io/pypi/l/xai-sdk\" alt=\"License\" / </a <a href=\"\" <img src=\"https://img.shields.io/pypi/pyversions/xai-sdk\" alt=\"Python Version\" / </a </div <br The xAI Python SDK is a gRPC-based Python library for interacting with xAI's APIs. Built for Python 3.10 and above, it offers both synchronous and asynchronous clients. Whether you're generating text, images, videos, or structured outputs, the xAI SDK is designed to be intuitive, robust, and developer-friendly. Documentation Comprehensive documentation is available at docs.x.ai (https://docs.x.ai). Explore",
+      "local_path": "data/knowledge/neural/sources/xai-org__xai-sdk-python.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "jup-ag__agent-skills",
+      "owner": "jup-ag",
+      "repo": "agent-skills",
+      "url": "https://github.com/jup-ag/agent-skills",
+      "domain": "skills",
+      "readme_ingested": true,
+      "summary": "Agent Skills Skills for AI coding agents to integrate with the Jupiter ecosystem. Skills follow the Agent Skills (https://agentskills.io/) format. Plugins This repo intentionally packages agent-specific plugins under .plugins/<plugin-name /<agent . Use bash scripts/install_plugin.sh as the single installer entrypoint for packaged plugins in this repo. Run it from a cloned repo to install for Codex, Claude Code, or both. The installer is interactive by default and lets the user choose the provider during setup. For Codex, the marketplace entry points to ./.plugins/integrate-jupiter/codex rather than the simpler ./plugins/<plugin-name layout so the same repository can ship both Codex and Claude variants side by side. Install from GitHub Install on your machine from GitHub: 1. Clone the repository: git clone https://github.com/jup-ag/agent-skills.git 2. Run bash scripts/install_plugin.sh fr",
+      "local_path": "data/knowledge/neural/sources/jup-ag__agent-skills.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "duckdb__duckdb",
+      "owner": "duckdb",
+      "repo": "duckdb",
+      "url": "https://github.com/duckdb/duckdb",
+      "domain": "data",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <picture <source media=\"(prefers-color-scheme: light)\" srcset=\"https://duckdb.org/images/designmanual/DuckDB_inline-lightmode.svg\" <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://duckdb.org/images/designmanual/DuckDB_inline-darkmode.svg\" <img alt=\"DuckDB logo\" src=\"https://duckdb.org/images/designmanual/DuckDB_inline-lightmode.svg\" height=\"100\" </picture </div <br <p align=\"center\" <a href=\"https://github.com/duckdb/duckdb/actions\" <img src=\"https://github.com/duckdb/duckdb/actions/workflows/Main.yml/badge.svg?branch=main\" alt=\"Github Actions Badge\" </a <a href=\"https://discord.gg/tcvwpjfnZx\" <img src=\"https://shields.io/discord/909674491309850675\" alt=\"discord\" / </a <a href=\"https://github.com/duckdb/duckdb/releases/\" <img src=\"https://img.shields.io/github/v/release/duckdb/duckdb?color=brightgreen&display_name=tag&logo=duckdb&logoColor=white\" alt=\"Late",
+      "local_path": "data/knowledge/neural/sources/duckdb__duckdb.md",
+      "vendor_policy": "catalog-only-too-large",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "tiagovilasboas__grok-bot-architecture",
+      "owner": "tiagovilasboas",
+      "repo": "grok-bot-architecture",
+      "url": "https://github.com/tiagovilasboas/grok-bot-architecture",
+      "domain": "architecture",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <picture <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/banner-dark.svg\" <img src=\"docs/assets/banner-light.svg\" alt=\"Grok Bot Architecture — AI agent teams, skills, MCP and human approval\" width=\"100%\" </picture Grok Bot Architecture: AI Agent Teams, Skills, MCP & Human Approval A reference architecture for AI agent teams with scoped roles, typed handoffs, and human approval before privileged actions. ! CI (https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml/badge.svg) (https://github.com/tiagovilasboas/grok-bot-architecture/actions/workflows/ci.yml) ! License: MIT (https://img.shields.io/badge/license-MIT-blue?style=flat-square) (LICENSE) ! GitHub stars (https://img.shields.io/github/stars/tiagovilasboas/grok-bot-architecture?style=flat-square) (https://github.com/tiagovilasboas/grok-bot-architecture/stargazers) ! MCP-n",
+      "local_path": "data/knowledge/neural/sources/tiagovilasboas__grok-bot-architecture.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "cobusgreyling__grok-bot-templates",
+      "owner": "cobusgreyling",
+      "repo": "grok-bot-templates",
+      "url": "https://github.com/cobusgreyling/grok-bot-templates",
+      "domain": "templates",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"assets/header.jpg\" alt=\"Templates for Grok Bot\" width=\"100%\" / </p Templates for Grok Bot <p align=\"center\" <strong <a href=\"https://cobusgreyling.github.io/grok-bot-templates/\" Browse the template catalog →</a </strong <br/ Pick a card. Copy PROFILE. Paste it into Edit Profile. No clone, no Node. </p ! CI (https://github.com/cobusgreyling/grok-bot-templates/actions/workflows/ci.yml/badge.svg) (https://github.com/cobusgreyling/grok-bot-templates/actions/workflows/ci.yml) ! License: MIT (https://img.shields.io/badge/License-MIT-blue.svg) (LICENSE) ! bot ready (https://cobusgreyling.github.io/grok-bot-templates/badge.svg) (https://cobusgreyling.github.io/grok-bot-templates/) ! Docs (https://img.shields.io/badge/docs-GitHub%20Pages-blue) (https://cobusgreyling.github.io/grok-bot-templates/) Stop pasting vibes. Design the Bot. Get a score. Operating contracts for ",
+      "local_path": "data/knowledge/neural/sources/cobusgreyling__grok-bot-templates.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "RongleCat__awesome-grok-bot",
+      "owner": "RongleCat",
+      "repo": "awesome-grok-bot",
+      "url": "https://github.com/RongleCat/awesome-grok-bot",
+      "domain": "index",
+      "readme_ingested": true,
+      "summary": "<h1 align=\"center\" <img src=\"./assets/banner.png\" alt=\"Awesome Grok Bot\" width=\"800\" / </h1 <p align=\"center\" <strong EN</strong · <a href=\"./README.zh.md\" <strong 中文</strong </a · <a href=\"./README.ja.md\" <strong 日本語</strong </a · <a href=\"https://usegrokbot.com/\" Playbook prompts</a </p <p align=\"center\" <a href=\"https://awesome.re\" <img src=\"https://awesome.re/badge.svg\" alt=\"Awesome\" / </a <img src=\"https://img.shields.io/badge/entries-2183-blueviolet\" alt=\"Entry count\" / <img src=\"https://img.shields.io/badge/Grok%20Bot-beta%20(2026--08--11)-informational\" alt=\"Grok Bot status\" / <img src=\"https://img.shields.io/badge/license-CC0-lightgrey\" alt=\"License\" / </p <p align=\"center\" <a href=\"https://grok-app.com\" <strong Grok App</strong </a (<a href=\"https://github.com/RongleCat/grok-app\" GitHub</a ) — open-source Grok Build desktop app · <a href=\"https://x.com/cgnot996\" 铁柱AGI @cgnot996",
+      "local_path": "data/knowledge/neural/sources/RongleCat__awesome-grok-bot.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "GMGNAI__skillmarket-demos",
+      "owner": "GMGNAI",
+      "repo": "skillmarket-demos",
+      "url": "https://github.com/GMGNAI/skillmarket-demos",
+      "domain": "skills",
+      "readme_ingested": true,
+      "summary": "<div align=\"center\" <img src=\"static/gmgn-api-demos.png\" alt=\"GMGN API Demos\" / ! X (https://img.shields.io/badge/Follow-%40gmgnai-black?logo=x&logoColor=white) (https://x.com/gmgnai) ! Telegram (https://img.shields.io/badge/Telegram-gmgnagentapi-2CA5E0?logo=telegram&logoColor=white) (https://t.me/gmgnagentapi) ! Discord (https://img.shields.io/badge/Discord-gmgnai-5865F2?logo=discord&logoColor=white) (https://discord.gg/gmgnai) English | 简体中文 (README.zh.md) </div About Demos Community-contributed demos built with the GMGN OpenAPI, provided for reference and learning only. Security is not guaranteed. Use any trading functions at your own risk. Demos | Demo | Description | Demo | Screenshot | |---|---|---|---| | aitrader (aitrader/) — Token Screen | Local memecoin screening + one-click trading dashboard built on GMGN Skills/MCP: deterministic rules cast wide → scoring cuts hard → LLM only",
+      "local_path": "data/knowledge/neural/sources/GMGNAI__skillmarket-demos.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "GMGNAI__gmgn-skills",
+      "owner": "GMGNAI",
+      "repo": "gmgn-skills",
+      "url": "https://github.com/GMGNAI/gmgn-skills",
+      "domain": "skills",
+      "readme_ingested": false,
+      "summary": "",
+      "local_path": null,
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    },
+    {
+      "id": "TraderAlice__OpenAlice",
+      "owner": "TraderAlice",
+      "repo": "OpenAlice",
+      "url": "https://github.com/TraderAlice/OpenAlice",
+      "domain": "trading",
+      "readme_ingested": true,
+      "summary": "<p align=\"center\" <img src=\"docs/images/alice-full.png\" alt=\"OpenAlice\" width=\"88\" </p <h1 align=\"center\" OpenAlice</h1 <p align=\"center\" <strong The AI orchestrator for trading.</strong <br Your one-person Wall Street — bring your AI agents, market tools, research, and trading accounts into one local workspace. </p <p align=\"center\" <a href=\"https://openalice.ai\" <img src=\"https://img.shields.io/badge/Website-blue\" alt=\"Website\" </a · <a href=\"https://openalice.ai/docs\" <img src=\"https://img.shields.io/badge/Docs-green\" alt=\"Docs\" </a · <a href=\"https://x.com/OpenAliceAI\" <img src=\"https://img.shields.io/badge/X-000000?logo=x&logoColor=white\" alt=\"X (Twitter)\" </a · <a href=\"https://discord.gg/zf4STmrQd8\" <img src=\"https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\" alt=\"Discord\" </a · <a href=\"https://qm.qq.com/q/iSg6O4FmrC\" <img src=\"https://img.shields.io/badge/",
+      "local_path": "data/knowledge/neural/sources/TraderAlice__OpenAlice.md",
+      "vendor_policy": "readme-summary",
+      "mythos_use": "pattern-source for local neural graph — not a cloud dependency"
+    }
+  ],
+  "edges": [
+    {
+      "from": "mythos",
+      "to": "poteto-ops",
+      "rel": "operating-system"
+    },
+    {
+      "from": "mythos",
+      "to": "creator-flywheel",
+      "rel": "creator-playbook"
+    },
+    {
+      "from": "mythos-extreme",
+      "to": "serenakeyitan__agent-org-chart",
+      "rel": "org-pattern"
+    },
+    {
+      "from": "mythos-extreme",
+      "to": "simo255__multiBot",
+      "rel": "swarm-pattern"
+    },
+    {
+      "from": "mythos",
+      "to": "mKay00__grok-bot-second-brain",
+      "rel": "memory-pattern"
+    },
+    {
+      "from": "defender",
+      "to": "Archive228__foreman",
+      "rel": "ops-pattern"
+    }
+  ]
+}

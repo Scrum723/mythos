@@ -31,6 +31,7 @@ COMMANDS = {
     "guide",
     "educate",
     "knowledge",
+    "neural",
     "agency",
     "extreme",
     "council",

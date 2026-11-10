@@ -116,7 +116,9 @@ def knowledge_snapshot() -> dict[str, Any]:
     caps = synthesize_capabilities()
     mcp = mcp_catalog()
     from .defense import local_threat_posture
+    from .neural import neural_snapshot
 
+    neural = neural_snapshot()
     return {
         "service": "mythos",
         "library_root": str(KNOWLEDGE_DIR),
@@ -136,10 +138,11 @@ def knowledge_snapshot() -> dict[str, Any]:
             "install_policy": mcp["install_policy"],
             "relevant_servers": mcp["relevant_servers"],
         },
+        "neural": neural,
         "capabilities": caps,
         "defense": local_threat_posture(),
         "weights_note": (
-            "Mythos 'weights' here means local knowledge cards + local GGUF/Ollama brains on disk — "
-            "not proprietary cloud model merges."
+            "Mythos 'weights' means local knowledge cards, playbooks, neural pattern graph, "
+            "and optional on-disk Ollama/GGUF — not proprietary cloud model merges."
         ),
     }

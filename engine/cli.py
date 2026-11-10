@@ -65,7 +65,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     improve_p.add_argument("--apply", action="store_true", help="Apply safe fixes in the target")
     sub.add_parser("guide", help="How this agent works")
     sub.add_parser("educate", help="Offline teaching report (no remote fetches)")
-    sub.add_parser("knowledge", help="Local knowledge library (coding + spoken + defense)")
+    sub.add_parser("knowledge", help="Local knowledge library (coding + spoken + defense + neural)")
+    neural_p = sub.add_parser("neural", help="Mythos neural pattern graph (ingested open-source)")
+    neural_sub = neural_p.add_subparsers(dest="neural_cmd", required=True)
+    neural_sub.add_parser("status", help="Neural graph snapshot")
+    neural_sub.add_parser("train", help="Local train step: log + enqueue Extreme apply")
     agency_p = sub.add_parser("agency", help="Local free-will agency (self-prompt / defer / list)")
     agency_sub = agency_p.add_subparsers(dest="agency_cmd", required=True)
     sp = agency_sub.add_parser("self-prompt", help="Queue a self-directed follow-up")
@@ -128,6 +132,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print(json.dumps(snap, indent=2))
         return 0
+    if args.cmd == "neural":
+        from .neural import neural_snapshot, train_from_neural
+
+        cmd = getattr(args, "neural_cmd", None)
+        if cmd == "status":
+            print(json.dumps(neural_snapshot(), indent=2))
+            return 0
+        if cmd == "train":
+            print(json.dumps(train_from_neural(), indent=2))
+            return 0
+        print("usage: neural status|train", file=sys.stderr)
+        return 2
     if args.cmd == "agency":
         return _agency(args, settings)
     if args.cmd == "extreme":

@@ -27,6 +27,21 @@
 ## Learned 2026-09-20
 - Front-load answers; keep chat short; use retrieve before wandering greps.
 
+## Ops (Poteto method)
+- Say it back before acting on voice dumps.
+- One job per bot; chief of staff is Extreme synthesizer / evolve.
+- Routines ≤ hourly; scripts beat LLM busywork.
+- Closed loops with proof; owner presses money/post/send unless delegated.
+- Corrections update structure → checks → skills → review.
+
+## Creator
+- Coach scripts; keep owner voice.
+- Edit plan before cut; human approve publish.
+- Every piece teaches the next (log lessons).
+
+## Neural
+- Pattern sources live in data/knowledge/neural/; runtime does not depend on those remotes.
+
 ## Learned 2026-09-22 — UI tasks (critical)
 - Never paste a tutorial and stop. **Write the files, run the server, verify the browser.**
 - Never invent fake APIs (`api.docweatherai.com`). Use real free sources (NWS `api.weather.gov`, SPC/WPC public maps) or code that already exists in the user's DOC projects.

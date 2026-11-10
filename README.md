@@ -20,7 +20,12 @@ set MYTHOS_AIRGAP=1          # refuse remote model pulls
 ### Mythos Extreme
 Local multi-agent **council** (coder / creator / defender / critic / synthesizer) + **self-evolution** + **watchdog** that snapshots network, this device, and connected devices over time. Still NO CHARGES; model optional.
 
-Local knowledge lives in `data/knowledge/` (coding cards, ISO spoken-language catalog, combined capabilities). Mythos synthesizes coding/generative/creative/defense into one **local** unit — it does not merge proprietary cloud model weights.
+Local knowledge lives in `data/knowledge/` (coding cards, ISO spoken-language catalog, combined capabilities, **neural pattern graph**, Poteto ops + creator playbooks). Mythos synthesizes coding/generative/creative/defense into one **local** unit — it does not merge proprietary cloud model weights.
+
+```bash
+python3 agent.py neural status   # ingested open-source pattern graph
+python3 agent.py neural train    # log + enqueue Extreme apply of playbooks
+```
 
 ## Setup (once)
 

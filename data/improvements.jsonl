@@ -24,3 +24,17 @@
 {"ts": "2026-11-07T01:49:28.653489+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
 {"ts": "2026-11-07T01:49:31.564095+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
 {"ts": "2026-11-07T01:53:19.114378+00:00", "area": "extreme", "note": "Extreme council on: one-line strengths", "task": "one-line strengths"}
+{"ts": "2026-11-07T01:53:39.130645+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-07T01:53:41.942755+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-07T01:53:44.730537+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-09T00:40:46.383473+00:00", "area": "extreme", "note": "Extreme council on: harden local defense", "task": "harden local defense"}
+{"ts": "2026-11-09T00:50:23.250901+00:00", "area": "extreme", "note": "Extreme council on: Continue Extreme evolution on: harden local defense", "task": "Continue Extreme evolution on: harden local defense"}
+{"ts": "2026-11-10T06:18:37.944343+00:00", "area": "neural", "note": "unit-test neural train", "task": "neural-train"}
+{"ts": "2026-11-10T06:18:41.162089+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-10T06:18:44.145455+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-10T06:18:45.950417+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-10T06:18:48.050956+00:00", "area": "neural", "note": "Neural train: 29 sources, 28 readmes, playbooks=['creator-flywheel', 'poteto-ops']", "task": "neural-train"}
+{"ts": "2026-11-10T06:18:59.942194+00:00", "area": "extreme", "note": "Extreme council on: run extreme on knowledge gaps", "task": "run extreme on knowledge gaps"}
+{"ts": "2026-11-10T06:19:02.502078+00:00", "area": "extreme", "note": "Extreme council on: quick council check", "task": "quick council check"}
+{"ts": "2026-11-10T06:19:04.803765+00:00", "area": "extreme", "note": "Extreme council on: summarize Mythos strengths", "task": "summarize Mythos strengths"}
+{"ts": "2026-11-10T06:20:03.847877+00:00", "area": "neural", "note": "unit-test neural train", "task": "neural-train"}

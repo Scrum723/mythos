@@ -6,9 +6,12 @@
     {"source": "coding agents (Grok Build / Astra / GPT-style workflows)", "capabilities": ["explore", "implement", "verify", "small diffs", "tests"]},
     {"source": "generative / creative agents", "capabilities": ["stories", "ideation", "naming", "explanations", "prompt craft"]},
     {"source": "local LLM / ML runners", "capabilities": ["Ollama loopback", "on-disk GGUF", "offline educate"]},
-    {"source": "security / blue-team patterns", "capabilities": ["secret redaction", "path sandbox", "loopback-only LLM", "airgap", "exterior risk scan"]}
+    {"source": "security / blue-team patterns", "capabilities": ["secret redaction", "path sandbox", "loopback-only LLM", "airgap", "exterior risk scan"]},
+    {"source": "Poteto Grok Bot method", "capabilities": ["trust ladder", "one-job bots", "chief of staff", "closed loops", "routines"]},
+    {"source": "X Creators flywheel", "capabilities": ["script coach", "edit plan", "parallel creation lessons", "analytics→next video"]},
+    {"source": "ingested open-source neural graph", "capabilities": ["org charts", "swarm", "second brain", "trading refs", "creator tools", "skills indexes"]}
   ],
-  "domains": ["coding", "generative", "creative", "local-llm-ml", "defense"],
+  "domains": ["coding", "generative", "creative", "local-llm-ml", "defense", "ops", "creator", "neural"],
   "no_charges": true,
   "remote_llm_forbidden": true
 }

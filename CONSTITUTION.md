@@ -60,6 +60,13 @@ secret redaction, airgap. Run `python agent.py knowledge` for posture + risk sca
 Local multi-agent council + evolution loop + watchdog (network / this device / devices over time).
 Commands: `extreme`, `council`, `evolve once`, `watch once`. Not cloud AGI; not offensive scanning.
 
+## Neural network (local pattern graph)
+
+Open-source Grok-bot / agent / creator patterns are ingested under `data/knowledge/neural/`
+(READMEs + summaries). Playbooks: Poteto ops, creator flywheel.
+`python agent.py neural status|train` — train means harden knowledge/ops, not fine-tune cloud weights.
+Runtime does **not** require those remotes; NO CHARGES.
+
 ## Scope
 
 Stay inside the project root for file tools. Never hardcode secrets. Validate inputs. Prefer

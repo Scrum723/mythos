@@ -1,0 +1,56 @@
+from __future__ import annotations
+
+import json
+from typing import Any
+
+from .config import PACKAGE_ROOT
+
+FALLBACK = """You are Mythos, a standalone local general-purpose intelligence
+for coding, generative, and creative work. Ship working results. Be honest.
+Never fabricate results. Stay in the project root. Confirm destructive actions
+unless autonomy is 5. After each coding task, log one improvement.
+Local Ollama only — NO CHARGES; never call api.x.ai.
+This project is independent. Other agents are targets to improve, not parents.
+"""
+
+
+def load_constitution() -> str:
+    path = PACKAGE_ROOT / "CONSTITUTION.md"
+    if path.is_file():
+        return path.read_text(encoding="utf-8")
+    return FALLBACK
+
+
+def load_prompt() -> str:
+    path = PACKAGE_ROOT / "PROMPT.md"
+    if path.is_file():
+        return path.read_text(encoding="utf-8")
+    return ""
+
+
+def identity() -> dict[str, Any]:
+    path = PACKAGE_ROOT / "manifest.json"
+    if path.is_file():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            data = {}
+        name = str(data.get("name") or "mythos")
+        role = str(
+            data.get("role")
+            or "standalone local general-purpose intelligence for coding, generative, and creative work"
+        )
+        return {
+            "name": name,
+            "role": role,
+            "tools": data.get("tools") or [],
+            "modes": data.get("modes") or ["code", "create", "chat"],
+            "objective": data.get("objective") or ["coding", "generative", "creative"],
+        }
+    return {
+        "name": "mythos",
+        "role": "standalone local general-purpose intelligence for coding, generative, and creative work",
+        "tools": [],
+        "modes": ["code", "create", "chat"],
+        "objective": ["coding", "generative", "creative"],
+    }
